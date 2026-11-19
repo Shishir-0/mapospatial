@@ -3,59 +3,73 @@
 @tailwind utilities;
 
 :root {
-  --color-basalt: #090B0C;
-  --color-carbon: #111517;
-  --color-graphite: #191E20;
-  --color-mineral: #F0EEE8;
-  --color-copper: #C27A50;
-  --color-border: #292F30;
+  --color-bg: #FFFFFF;
+  --color-secondary-bg: #F7F8FA;
+  --color-primary-heading: #14233F;
+  --color-secondary-heading: #1D2D46;
+  --color-body-text: #425168;
+  --color-secondary-body: #536174;
+  --color-tech-label: #536174;
+  --color-eyebrow: #596579;
+  --color-nav: #14233F;
+  --color-metadata: #657184;
+  --color-muted-text: #6B7788;
+  --color-divider: #DCE1E7;
+  --color-gold: #B69A5A;
 }
 
 @layer base {
   html {
-    background-color: #090B0C;
-    color: #F0EEE8;
-    color-scheme: dark;
+    background-color: #FFFFFF;
+    color: #425168;
+    color-scheme: light;
   }
 
   body {
-    background-color: transparent;
-    color: #F0EEE8;
+    background-color: #FFFFFF;
+    color: #425168;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6, .font-display {
     font-family: 'Space Grotesk', sans-serif;
+    color: #14233F;
     letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  p {
+    color: #425168;
   }
 
   code, pre, .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
+
+  /* Prevent any accidental opacity fading on content */
+  article, section, main, div {
+    opacity: 1;
+  }
 }
 
-/* Subtle architectural grid lines */
-.bg-survey-grid {
+/* Subtle architectural grid pattern on light background */
+.bg-tech-grid {
   background-size: 48px 48px;
   background-image: 
-    linear-gradient(to right, rgba(41, 47, 48, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(41, 47, 48, 0.4) 1px, transparent 1px);
+    linear-gradient(to right, rgba(220, 225, 231, 0.7) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(220, 225, 231, 0.7) 1px, transparent 1px);
 }
 
-/* Architectural panel style */
-.arch-panel {
-  background: rgba(17, 21, 23, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #292F30;
-}
-
-.arch-panel-solid {
-  background: #111517;
-  border: 1px solid #292F30;
+/* Subtle architectural grid pattern on dark navy stage */
+.bg-tech-grid-dark {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(41, 57, 85, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 57, 85, 0.4) 1px, transparent 1px);
 }
 
 /* Survey crosshair corner tick */
@@ -67,23 +81,23 @@
 .survey-corner::after {
   content: '';
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   pointer-events: none;
 }
 
 .survey-corner::before {
   top: -1px;
   left: -1px;
-  border-top: 1px solid #C27A50;
-  border-left: 1px solid #C27A50;
+  border-top: 1.5px solid #B69A5A;
+  border-left: 1.5px solid #B69A5A;
 }
 
 .survey-corner::after {
   bottom: -1px;
   right: -1px;
-  border-bottom: 1px solid #C27A50;
-  border-right: 1px solid #C27A50;
+  border-bottom: 1.5px solid #B69A5A;
+  border-right: 1.5px solid #B69A5A;
 }
 
 /* Precision scrollbar */
@@ -91,22 +105,12 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #090B0C;
+  background: #F7F8FA;
 }
 ::-webkit-scrollbar-thumb {
-  background: #191E20;
-  border: 1px solid #292F30;
+  background: #CAD1D4;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C27A50;
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  background: #B69A5A;
 }

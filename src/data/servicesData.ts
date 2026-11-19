@@ -7,7 +7,8 @@ export const servicesData: ServiceItem[] = [
     title: 'Scan to BIM',
     category: 'Digital Engineering',
     tagline: 'High-Accuracy As-Built Intelligence from Laser Scans to Coordinated BIM Models',
-    summary: 'Transform raw, dense 3D point cloud scans into millimeter-accurate, clash-free Building Information Models (Revit). We bridge the physical and virtual realms across LOD 100 to 500 for complex architectural renovations, heritage conservation, and industrial facility modernization.',
+    summary: 'Transform raw, dense 3D point cloud scans into millimeter-accurate, clash-free Building Information Models (Revit). We bridge physical reality and virtual BIM across LOD 100 to 500 for complex architectural renovations, heritage conservation, and industrial facility modernization.',
+    imageAsset: '/assets/Building-3.jpg',
     technicalCapabilities: [
       'Architectural, Structural & MEP Modeling across LOD 100-500',
       'Automated and manual point cloud registration & deviation analysis',
@@ -42,7 +43,7 @@ export const servicesData: ServiceItem[] = [
       {
         step: '04',
         title: 'Quality Assurance & Deviation Heatmap Analysis',
-        description: 'Algorithmic overlay comparing the modeled geometry against the raw scan to ensure strict adherence within 3mm tolerances.'
+        description: 'Algorithmic overlay comparing the modeled geometry against the raw scan to ensure strict adherence within ±3mm tolerances.'
       }
     ],
     specifications: [
@@ -66,6 +67,7 @@ export const servicesData: ServiceItem[] = [
     category: 'Spatial Data Acquisition',
     tagline: 'Precision 3D Laser Scanning for Complete Physical Reality Digitization',
     summary: 'Comprehensive reality capture solutions leveraging terrestrial LiDAR, mobile scanners, and drone-based photogrammetry to create exhaustive 3D digital records of complex physical structures, plant sites, and civil infrastructure.',
+    imageAsset: '/assets/Plant-room3.jpg',
     technicalCapabilities: [
       'High-definition terrestrial laser scanning (TLS) with HDR photographic capture',
       'Mobile mapping system (MMS) scanning for transport corridors',
@@ -121,6 +123,7 @@ export const servicesData: ServiceItem[] = [
     category: 'Advanced Spatial Processing',
     tagline: 'High-Throughput Point Cloud Classification, Corridor Mapping & Feature Extraction',
     summary: 'Turn massive raw airborne, mobile, and terrestrial LiDAR datasets into structured geospatial intelligence. Our engineering teams specialize in multi-class point classification, terrain elevation extraction, transmission line corridor mapping, and transport network asset inventories.',
+    imageAsset: '/assets/Lider1.png',
     technicalCapabilities: [
       'Automated and manual point cloud classification (ASPRS Standards)',
       'Digital Terrain Model (DTM) and Digital Surface Model (DSM) production',
@@ -178,6 +181,7 @@ export const servicesData: ServiceItem[] = [
     category: 'Earth Observation & Mapping',
     tagline: 'High-Resolution Aerial Triangulation, Orthophoto Processing & Cadastral Mapping',
     summary: 'Delivering survey-grade photogrammetric processing, large-format aerial mapping, and cadastral boundary digitization. We transform aerial and satellite imagery into seamless, distortion-free orthomosaics and accurate cartographic base layers.',
+    imageAsset: '/assets/Photogrammetry-Terrain-Based-3D-Model-1.png',
     technicalCapabilities: [
       'Aerial Triangulation (AT) and bundle adjustment for large imagery blocks',
       'True Ortho and Orthomosaic generation with seamline editing & radiometric balancing',
@@ -233,6 +237,7 @@ export const servicesData: ServiceItem[] = [
     category: 'Spatial Analytics & Data Systems',
     tagline: 'Enterprise Geographic Information Systems, Underground Utilities & Spatial Data Infrastructure',
     summary: 'Build robust spatial data infrastructures and spatial analytics pipelines. We deliver comprehensive GIS base mapping, underground utility surveys, network topology modeling, and geodatabase structuring for government and infrastructure operators.',
+    imageAsset: '/assets/Utilities-mapping1.jpg.png',
     technicalCapabilities: [
       'Enterprise GIS geodatabase architecture design (ESRI Enterprise Geodatabase)',
       'Subsurface utility engineering (SUE) mapping conforming to ASCE 38-02',
@@ -288,6 +293,7 @@ export const servicesData: ServiceItem[] = [
     category: 'Next-Generation Spatial Platforms',
     tagline: 'Interactive 3D Virtual Twins Connecting As-Built Reality with Real-Time Operational Context',
     summary: 'Mapo Spatial has long delivered production Digital Twin solutions that connect physical assets with their digital counterparts. We fuse laser scan point clouds, LOD 350+ BIM geometry, GIS spatial layers, and IoT sensor streams into unified, navigable digital twins for proactive facility and infrastructure lifecycle management.',
+    imageAsset: '/assets/Plant.png',
     technicalCapabilities: [
       'Multi-scale digital twin modeling from single structures to regional infrastructure',
       'Integration of high-density reality capture meshes with parametric BIM components',
@@ -338,7 +344,6 @@ export const servicesData: ServiceItem[] = [
   }
 ];
 
-// Helper to look up service by slug, including aliases like reality-capture-scan-to-bim
 export function getServiceBySlug(slug: string): ServiceItem | undefined {
   if (slug === 'reality-capture-scan-to-bim') {
     return servicesData.find(s => s.slug === 'scan-to-bim');

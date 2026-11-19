@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { industriesData } from '../data/industriesData';
 import { Breadcrumbs } from '../components/shared/Breadcrumbs';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
 export const IndustriesPage: React.FC = () => {
   useEffect(() => {
@@ -11,24 +11,24 @@ export const IndustriesPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative">
+    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-white">
       
       {/* Breadcrumbs */}
       <Breadcrumbs items={[{ label: 'Industries Served' }]} />
 
       {/* Hero Section */}
-      <div className="py-12 border-b border-subtle-border">
+      <div className="py-12 border-b border-[#DCE1E7]">
         <div className="max-w-3xl space-y-4">
           
-          <span className="text-[11px] font-mono text-copper tracking-widest uppercase block">
-            [CRITICAL SECTORS & APPLICATIONS]
+          <span className="text-xs font-mono text-[#596579] font-bold tracking-widest uppercase block">
+            [CRITICAL SECTORS & GLOBAL APPLICATIONS]
           </span>
 
-          <h1 className="text-4xl sm:text-6xl font-display font-bold text-mineral leading-[1.08] tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-display font-bold text-[#14233F] leading-[1.08] tracking-tight">
             Engineered for Critical Sectors
           </h1>
 
-          <p className="text-base sm:text-lg text-text-secondary font-light leading-relaxed pt-2">
+          <p className="text-base sm:text-lg text-[#425168] font-normal leading-relaxed pt-2">
             Every industry operates under distinct physical, environmental, and regulatory constraints. We tailor our laser scanning, Scan-to-BIM, and LiDAR pipelines to deliver actionable intelligence tailored to your operational environment.
           </p>
 
@@ -41,88 +41,103 @@ export const IndustriesPage: React.FC = () => {
           <div
             key={ind.id}
             id={ind.slug}
-            className="p-8 sm:p-10 border border-subtle-border bg-carbon/90 backdrop-blur-md space-y-8 survey-corner"
+            className="p-6 sm:p-10 border border-[#DCE1E7] bg-white rounded-sm space-y-8 shadow-sm"
           >
             
             {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-subtle-border gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#DCE1E7] gap-4">
               <div>
-                <span className="text-[10px] font-mono text-copper uppercase tracking-wider block">
+                <span className="text-[10px] font-mono text-[#B69A5A] uppercase font-bold tracking-wider block">
                   SECTOR 0{idx + 1}
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-display font-bold text-mineral">
+                <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#14233F]">
                   {ind.name}
                 </h2>
               </div>
 
               <Link
                 to="/contact"
-                className="font-mono text-xs uppercase tracking-wider text-mineral hover:text-copper flex items-center gap-1.5 transition-colors"
+                className="font-mono text-xs uppercase tracking-wider text-[#14233F] hover:text-[#B69A5A] flex items-center gap-1.5 transition-colors font-bold"
               >
                 <span>Request Sector Case Deck</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-copper" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#B69A5A]" />
               </Link>
             </div>
 
-            {/* Narrative & Case Highlight */}
+            {/* Visual Image & Narrative */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
+              {/* Image Frame */}
+              <div className="lg:col-span-5 relative rounded-sm overflow-hidden border border-[#DCE1E7] bg-[#F7F8FA] aspect-[16/10] shadow-sm">
+                <img 
+                  src={ind.imageAsset} 
+                  alt={ind.name} 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#14233F]/80 via-transparent to-transparent flex items-end p-4">
+                  <span className="font-mono text-[11px] text-white font-bold bg-[#14233F] px-2.5 py-1 rounded-sm border border-[#B69A5A]/50">
+                    DELIVERABLE: {ind.name}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
               <div className="lg:col-span-7 space-y-4">
-                <p className="text-sm text-text-secondary font-light leading-relaxed">
+                <p className="text-sm text-[#425168] font-normal leading-relaxed">
                   {ind.fullDesc}
                 </p>
 
                 {ind.caseStudyHighlight && (
-                  <div className="p-4 bg-graphite/60 border border-subtle-border font-mono text-xs text-text-secondary">
-                    <span className="text-copper block text-[10px] uppercase font-semibold mb-1">
+                  <div className="p-4 bg-[#F7F8FA] border border-[#DCE1E7] rounded-sm font-mono text-xs text-[#14233F]">
+                    <span className="text-[#B69A5A] block text-[10px] uppercase font-bold mb-1">
                       PROVEN SECTOR OUTCOME:
                     </span>
-                    <p className="text-mineral">{ind.caseStudyHighlight}</p>
+                    <p className="font-medium text-[#425168]">{ind.caseStudyHighlight}</p>
                   </div>
                 )}
-              </div>
 
-              {/* Typical Deliverables Box */}
-              <div className="lg:col-span-5 bg-graphite/50 p-6 border border-subtle-border space-y-3 font-mono text-xs">
-                <div className="text-copper uppercase tracking-wider text-[11px] font-semibold">
-                  Standard Sector Deliverables
-                </div>
-                <div className="space-y-2 text-mineral">
-                  {ind.typicalDeliverables.map((del, dIdx) => (
-                    <div key={dIdx} className="flex items-start gap-2">
-                      <span className="text-copper">•</span>
-                      <span>{del}</span>
-                    </div>
-                  ))}
+                {/* Typical Deliverables Box */}
+                <div className="bg-[#F7F8FA] p-5 border border-[#DCE1E7] rounded-sm space-y-2.5 font-mono text-xs">
+                  <div className="text-[#14233F] uppercase tracking-wider text-[11px] font-bold">
+                    Standard Sector Deliverables
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[#425168]">
+                    {ind.typicalDeliverables.map((del, dIdx) => (
+                      <div key={dIdx} className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#B69A5A] shrink-0 mt-0.5" />
+                        <span className="font-medium">{del}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
             </div>
 
             {/* Challenges & Solutions */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-subtle-border font-mono text-xs">
-              <div className="space-y-2 p-4 bg-basalt/60 border border-subtle-border/60">
-                <span className="text-rose-400 uppercase font-semibold block text-[11px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-[#DCE1E7] font-mono text-xs">
+              <div className="space-y-2 p-5 bg-[#F7F8FA] border border-[#DCE1E7] rounded-sm">
+                <span className="text-[#14233F] uppercase font-bold block text-[11px]">
                   Sector Inherent Challenges
                 </span>
-                <ul className="space-y-1.5 text-text-muted font-sans text-xs">
+                <ul className="space-y-1.5 text-[#425168] font-sans text-xs">
                   {ind.challenges.map((ch, cIdx) => (
                     <li key={cIdx} className="flex items-start gap-2">
-                      <span className="text-rose-400 font-bold">•</span>
+                      <span className="text-[#14233F] font-bold">•</span>
                       <span>{ch}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="space-y-2 p-4 bg-basalt/60 border border-subtle-border/60">
-                <span className="text-copper uppercase font-semibold block text-[11px]">
+              <div className="space-y-2 p-5 bg-[#F7F8FA] border border-[#DCE1E7] rounded-sm">
+                <span className="text-[#14233F] uppercase font-bold block text-[11px]">
                   Mapo Spatial Engineering Solution
                 </span>
-                <ul className="space-y-1.5 text-text-muted font-sans text-xs">
+                <ul className="space-y-1.5 text-[#425168] font-sans text-xs">
                   {ind.solutions.map((sol, sIdx) => (
                     <li key={sIdx} className="flex items-start gap-2">
-                      <span className="text-copper font-bold">•</span>
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#B69A5A] shrink-0 mt-0.5" />
                       <span>{sol}</span>
                     </li>
                   ))}
