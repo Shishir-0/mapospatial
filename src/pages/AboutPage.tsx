@@ -1,19 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../components/shared/Breadcrumbs';
-import { 
-  ShieldCheck, 
-  Target, 
-  Globe, 
-  Cpu, 
-  Layers, 
-  Compass, 
-  CheckCircle2, 
-  ArrowRight,
-  Mail,
-  Phone,
-  MapPin
-} from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
   useEffect(() => {
@@ -41,180 +29,166 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-24 pb-20 bg-navy-950 min-h-screen text-offwhite relative">
+    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative">
       
-      {/* Background Decor */}
-      <div className="absolute inset-0 bg-spatial-grid opacity-25 pointer-events-none" />
+      {/* Breadcrumb */}
+      <Breadcrumbs items={[{ label: 'About Mapo Spatial' }]} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Breadcrumb */}
-        <Breadcrumbs items={[{ label: 'About Mapo Spatial' }]} />
-
-        {/* Hero Banner */}
-        <div className="py-12 border-b border-spatial-cyan/20">
-          <div className="max-w-3xl space-y-4">
-            
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-navy-900 border border-spatial-cyan/30 text-spatial-cyan text-xs font-mono uppercase tracking-wider">
-              <span>Company & Engineering Mission</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-offwhite tracking-tight leading-[1.1]">
-              Charting Smarter <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-spatial-cyan via-spatial-cyan-bright to-offwhite">
-                Decisions.
-              </span>
-            </h1>
-
-            <p className="text-lg text-offwhite/85 font-light leading-relaxed pt-2">
-              Mapo Spatial is an international digital spatial engineering partner. We combine cutting-edge reality capture, advanced LiDAR processing, and deep BIM domain expertise to translate complex spatial data into accurate, actionable intelligence for organizations worldwide.
-            </p>
-
-          </div>
-        </div>
-
-        {/* Mission & Purpose Section */}
-        <div className="py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-b border-navy-800">
+      {/* Hero Header */}
+      <div className="py-12 border-b border-subtle-border">
+        <div className="max-w-3xl space-y-4">
           
-          <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs font-mono text-spatial-cyan uppercase tracking-wider font-semibold block">
-              The Engineering Problem We Solve
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-display font-bold text-offwhite">
-              Bridging Physical Reality and Digital Execution
-            </h2>
-            <div className="space-y-4 text-sm text-offwhite/80 font-light leading-relaxed">
-              <p>
-                In capital construction, rail transport, and complex industrial plant operations, the single greatest source of budget overruns, design rework, and schedule delay is flawed spatial assumptions.
-              </p>
-              <p>
-                Historic 2D drawings are frequently outdated, site measurements are fragmented, and dense laser scan point clouds are often abandoned because teams lack the specialized engineering bandwidth to extract structured, clash-free BIM models.
-              </p>
-              <p>
-                Mapo Spatial was founded to solve this bottleneck. We ingest high-density 3D reality capture, airborne and mobile LiDAR, and subsurface surveys, transforming them into standardized Revit models (LOD 100-500), classified ASPRS point clouds, and interactive Digital Twins that engineering teams can immediately rely upon.
-              </p>
-            </div>
-          </div>
+          <span className="text-[11px] font-mono text-copper tracking-widest uppercase block">
+            [COMPANY & MISSION]
+          </span>
 
-          <div className="lg:col-span-6">
-            <div className="hud-panel p-8 bg-navy-900/80 border border-spatial-cyan/25 rounded-2xl space-y-6 corner-reticle">
-              <h3 className="text-lg font-display font-bold text-offwhite pb-3 border-b border-navy-700">
-                Core Engineering Commitments
-              </h3>
-              <div className="space-y-4">
-                {corePillars.map((pillar, idx) => (
-                  <div key={idx} className="space-y-1">
-                    <div className="text-sm font-display font-semibold text-spatial-cyan">
-                      0{idx + 1}. {pillar.title}
-                    </div>
-                    <p className="text-xs text-offwhite/75 font-light leading-relaxed">
-                      {pillar.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <h1 className="text-4xl sm:text-6xl font-display font-bold text-mineral leading-[1.08] tracking-tight">
+            Charting Smarter <br />
+            Decisions.
+          </h1>
+
+          <p className="text-base sm:text-lg text-text-secondary font-light leading-relaxed pt-2">
+            Mapo Spatial is an international digital spatial engineering partner. We combine advanced reality capture, precision LiDAR processing, and deep BIM domain expertise to translate complex physical environments into accurate, actionable intelligence for organizations worldwide.
+          </p>
 
         </div>
+      </div>
 
-        {/* Verified Technical Standards */}
-        <div className="py-16 border-b border-navy-800">
-          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-mono text-spatial-cyan uppercase tracking-wider font-semibold block">
-              Quality Assurance & Compliance
-            </span>
-            <h2 className="text-3xl font-display font-bold text-offwhite">
-              Rigorous Quality Framework
-            </h2>
-            <p className="text-sm text-offwhite/80 font-light">
-              Every deliverable produced across our engineering hubs follows rigorous multi-tiered verification protocols.
+      {/* Mission & Purpose Section */}
+      <div className="py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-subtle-border">
+        
+        <div className="lg:col-span-6 space-y-6">
+          <span className="text-xs font-mono text-copper uppercase tracking-wider block">
+            The Engineering Mandate
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-display font-bold text-mineral leading-tight">
+            Bridging Physical Reality and Digital Execution
+          </h2>
+          <div className="space-y-4 text-sm text-text-secondary font-light leading-relaxed">
+            <p>
+              In capital construction, rail transport, and complex industrial plant operations, the single greatest source of budget overruns, design rework, and schedule delay is flawed spatial assumptions.
+            </p>
+            <p>
+              Historic drawings are frequently outdated, site measurements are fragmented, and dense laser scan point clouds are often abandoned because teams lack the specialized engineering bandwidth to extract structured, clash-free BIM models.
+            </p>
+            <p>
+              Mapo Spatial was founded to solve this bottleneck. We ingest high-density 3D reality capture, airborne and mobile LiDAR, and subsurface surveys, transforming them into standardized Revit models (LOD 100-500), classified ASPRS point clouds, and interactive Digital Twins that engineering teams can immediately rely upon.
+            </p>
+          </div>
+        </div>
+
+        <div className="lg:col-span-6 space-y-4">
+          <div className="p-8 border border-subtle-border bg-carbon/90 backdrop-blur-md space-y-6 survey-corner">
+            <h3 className="text-base font-display font-bold text-mineral pb-3 border-b border-subtle-border">
+              Core Engineering Commitments
+            </h3>
+            <div className="space-y-5">
+              {corePillars.map((pillar, idx) => (
+                <div key={idx} className="space-y-1 font-mono text-xs">
+                  <div className="text-copper font-semibold">
+                    0{idx + 1}. {pillar.title}
+                  </div>
+                  <p className="text-text-muted font-sans text-xs font-light leading-relaxed">
+                    {pillar.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Verified Technical Standards */}
+      <div className="py-16 border-b border-subtle-border">
+        <div className="max-w-2xl mb-12 space-y-2">
+          <span className="text-xs font-mono text-copper uppercase tracking-wider block">
+            Quality Assurance & Framework
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-mineral">
+            Rigorous Verification Protocol
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 border border-subtle-border bg-carbon/70 space-y-3 survey-corner">
+            <span className="text-xs font-mono text-copper">01 / TOLERANCE VERIFICATION</span>
+            <h3 className="text-base font-display font-semibold text-mineral">
+              ±3mm Point Deviation
+            </h3>
+            <p className="text-xs text-text-muted font-light leading-relaxed">
+              Algorithmic point-to-plane registration and colorized deviation heatmaps verifying that 3D modeled elements conform within ±3mm of verified laser scan returns.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div className="hud-panel p-6 bg-navy-900/60 border border-spatial-cyan/20 rounded-xl space-y-3">
-              <ShieldCheck className="w-6 h-6 text-spatial-cyan" />
-              <h3 className="text-lg font-display font-bold text-offwhite">
-                Tolerance Verification
-              </h3>
-              <p className="text-xs text-offwhite/75 font-light leading-relaxed">
-                Algorithmic point-to-plane registration and colorized deviation heatmaps verifying that 3D modeled elements conform within ±3mm of verified laser scan returns.
-              </p>
-            </div>
+          <div className="p-6 border border-subtle-border bg-carbon/70 space-y-3 survey-corner">
+            <span className="text-xs font-mono text-copper">02 / DATA GOVERNANCE</span>
+            <h3 className="text-base font-display font-semibold text-mineral">
+              Strict Bilateral NDAs
+            </h3>
+            <p className="text-xs text-text-muted font-light leading-relaxed">
+              Enterprise data governance with encrypted transfer protocols, air-gapped processing nodes where mandated, and comprehensive client confidentiality agreements.
+            </p>
+          </div>
 
-            <div className="hud-panel p-6 bg-navy-900/60 border border-spatial-cyan/20 rounded-xl space-y-3">
-              <Cpu className="w-6 h-6 text-spatial-cyan" />
-              <h3 className="text-lg font-display font-bold text-offwhite">
-                Data Security & NDAs
-              </h3>
-              <p className="text-xs text-offwhite/75 font-light leading-relaxed">
-                Enterprise data governance with encrypted file transfer protocols, air-gapped processing nodes where mandated, and comprehensive client confidentiality agreements.
-              </p>
-            </div>
-
-            <div className="hud-panel p-6 bg-navy-900/60 border border-spatial-cyan/20 rounded-xl space-y-3">
-              <Layers className="w-6 h-6 text-spatial-cyan" />
-              <h3 className="text-lg font-display font-bold text-offwhite">
-                Interoperable Open Standards
-              </h3>
-              <p className="text-xs text-offwhite/75 font-light leading-relaxed">
-                Outputs strictly aligned with international standards: ASPRS LAS 1.4, buildingSMART IFC 4, ASCE 38-02 SUE, and ICAO Annex 14 aeronautical obstacle criteria.
-              </p>
-            </div>
-
+          <div className="p-6 border border-subtle-border bg-carbon/70 space-y-3 survey-corner">
+            <span className="text-xs font-mono text-copper">03 / OPEN INTEROPERABILITY</span>
+            <h3 className="text-base font-display font-semibold text-mineral">
+              International Standards
+            </h3>
+            <p className="text-xs text-text-muted font-light leading-relaxed">
+              Strict alignment with ASPRS LAS 1.4, buildingSMART IFC 4, ASCE 38-02 SUE, and ICAO Annex 14 aeronautical obstacle criteria.
+            </p>
           </div>
         </div>
+      </div>
 
-        {/* Global Operational Presence */}
-        <div className="py-16">
-          <div className="hud-panel p-8 sm:p-12 bg-navy-900/90 border border-spatial-cyan/30 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            
-            <div className="space-y-4">
-              <span className="text-xs font-mono text-spatial-cyan uppercase tracking-wider font-semibold block">
-                Headquarters & Communications
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-display font-bold text-offwhite">
-                Connect with our Leadership Team
-              </h2>
-              <p className="text-sm text-offwhite/80 font-light leading-relaxed">
-                Reach out to discuss partnership opportunities, ongoing master service agreements (MSA), or pilot evaluation projects.
-              </p>
+      {/* Global Communications */}
+      <div className="py-16">
+        <div className="p-8 sm:p-12 border border-subtle-border bg-carbon/90 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 items-center survey-corner">
+          
+          <div className="space-y-4">
+            <span className="text-xs font-mono text-copper uppercase tracking-wider block">
+              Headquarters & Global Hubs
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-mineral">
+              Connect with our Leadership Team
+            </h2>
+            <p className="text-xs sm:text-sm text-text-secondary font-light leading-relaxed">
+              Reach out to discuss partnership opportunities, ongoing master service agreements (MSA), or pilot evaluation projects.
+            </p>
 
-              <div className="pt-2 space-y-3 text-sm font-mono text-offwhite/90">
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-spatial-cyan" />
-                  <a href="mailto:enquiry@mapospatial.com" className="hover:text-spatial-cyan transition-colors">
-                    enquiry@mapospatial.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-spatial-cyan" />
-                  <a href="tel:+441296924032" className="hover:text-spatial-cyan transition-colors">
-                    +44 1296924032 (UK Line)
-                  </a>
-                </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-spatial-cyan shrink-0 mt-0.5" />
-                  <span>Bengaluru - 560064, India</span>
-                </div>
+            <div className="pt-2 space-y-2 text-xs font-mono text-mineral">
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-copper" />
+                <a href="mailto:enquiry@mapospatial.com" className="hover:text-copper transition-colors">
+                  enquiry@mapospatial.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-copper" />
+                <a href="tel:+441296924032" className="hover:text-copper transition-colors">
+                  +44 1296924032 (UK Direct)
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-copper" />
+                <span>Bengaluru - 560064, India</span>
               </div>
             </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-end">
-              <Link
-                to="/contact"
-                className="px-6 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-navy-950 bg-spatial-cyan hover:bg-spatial-cyan-bright transition-all rounded shadow-md text-center flex items-center justify-center gap-2"
-              >
-                <span>Initiate Project Consultation</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
           </div>
-        </div>
 
+          <div className="flex justify-start md:justify-end">
+            <Link
+              to="/contact"
+              className="px-6 py-3.5 text-xs font-mono font-semibold uppercase tracking-wider text-mineral bg-graphite hover:bg-carbon border border-subtle-border hover:border-copper transition-all flex items-center gap-2"
+            >
+              <span>Initiate Project Consultation</span>
+              <ArrowUpRight className="w-4 h-4 text-copper" />
+            </Link>
+          </div>
+
+        </div>
       </div>
 
     </div>

@@ -8,41 +8,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: '#0A1320',
-          900: '#101E32', // Primary deep navy
-          800: '#182B42', // Secondary dark blue
-          700: '#223854', // Structural utility slate
-          600: '#2C496A',
-          500: '#3D628C',
+        basalt: '#090B0C',        // Deep Basalt (primary background)
+        carbon: '#111517',        // Carbon Surface
+        graphite: '#191E20',      // Elevated Graphite
+        mineral: '#F0EEE8',       // Mineral White (primary text)
+        'text-secondary': '#A4A49D', // Secondary text
+        'text-muted': '#747B79',     // Muted technical text
+        copper: {
+          DEFAULT: '#C27A50',     // Survey Copper (selective accent)
+          dim: '#8E5534',
+          glow: 'rgba(194, 122, 80, 0.15)',
         },
-        spatial: {
-          cyan: '#52BFD0', // Signature spatial cyan
-          'cyan-bright': '#6BD5E7',
-          'cyan-dim': '#3A8A96',
-          'cyan-glow': 'rgba(82, 191, 208, 0.18)',
-          slate: '#253E52',
-          surface: '#111413',
-          card: '#142336',
-        },
-        offwhite: '#F5F6F3',
-        muted: '#78899B',
+        'subtle-border': '#292F30', // Subtle architectural border
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'sans-serif'],
-        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"Inter"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'drift': 'drift 20s linear infinite',
-      },
-      keyframes: {
-        drift: {
-          '0%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-10px)' },
-          '100%': { transform: 'translateY(0px)' },
-        }
+      borderRadius: {
+        none: '0',
+        sm: '2px',
+        DEFAULT: '3px',
+        md: '4px',
+        lg: '6px',
       }
     },
   },
