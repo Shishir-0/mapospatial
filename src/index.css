@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #101E32;
+  --color-secondary: #182B42;
+  --color-accent: #52BFD0;
+  --color-offwhite: #F5F6F3;
+}
+
+@layer base {
+  body {
+    background-color: #101E32;
+    color: #F5F6F3;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom telemetry grid pattern */
+.bg-spatial-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(82, 191, 208, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(82, 191, 208, 0.05) 1px, transparent 1px);
+}
+
+.bg-spatial-grid-dense {
+  background-size: 20px 20px;
+  background-image: 
+    linear-gradient(to right, rgba(82, 191, 208, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(82, 191, 208, 0.08) 1px, transparent 1px);
+}
+
+/* Glassmorphic card styling based on Stitch design system */
+.hud-panel {
+  background: rgba(24, 43, 66, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(82, 191, 208, 0.16);
+  border-radius: 8px;
+}
+
+.hud-panel:hover {
+  border-color: rgba(82, 191, 208, 0.35);
+  box-shadow: 0 0 25px -5px rgba(82, 191, 208, 0.12);
+}
+
+/* Precision corner reticles */
+.corner-reticle {
+  position: relative;
+}
+
+.corner-reticle::before,
+.corner-reticle::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-color: #52BFD0;
+  pointer-events: none;
+}
+
+.corner-reticle::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid #52BFD0;
+  border-left: 1.5px solid #52BFD0;
+}
+
+.corner-reticle::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid #52BFD0;
+  border-right: 1.5px solid #52BFD0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A1320;
+}
+::-webkit-scrollbar-thumb {
+  background: #253E52;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52BFD0;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
