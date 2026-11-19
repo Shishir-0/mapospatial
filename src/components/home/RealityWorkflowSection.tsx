@@ -195,14 +195,22 @@ export const RealityWorkflowSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action */}
-              <div className="pt-2">
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <Link
+                  to="/workflow"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold/90 text-navy font-mono text-xs font-bold uppercase tracking-wider rounded-sm transition-all shadow-md"
+                >
+                  <span>Explore Full 6-Stage Methodology</span>
+                  <ArrowRight className="w-4 h-4 text-navy" />
+                </Link>
+
                 <Link
                   to="/scan-to-bim"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold/90 text-navy font-mono text-xs font-bold uppercase tracking-wider rounded-sm transition-all shadow-md"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/20 text-white font-mono text-xs uppercase tracking-wider rounded-sm transition-all border border-white/20"
                 >
-                  <span>Explore Scan-to-BIM Deliverables</span>
-                  <ArrowRight className="w-4 h-4 text-navy" />
+                  <span>Scan to BIM Specs</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-gold" />
                 </Link>
               </div>
 

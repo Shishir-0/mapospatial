@@ -10,6 +10,7 @@ const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage').then(m => ({ default: m.ServiceDetailPage })));
 const IndustriesPage = lazy(() => import('./pages/IndustriesPage').then(m => ({ default: m.IndustriesPage })));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then(m => ({ default: m.ProjectsPage })));
+const WorkflowPage = lazy(() => import('./pages/WorkflowPage').then(m => ({ default: m.WorkflowPage })));
 const InsightsPage = lazy(() => import('./pages/InsightsPage').then(m => ({ default: m.InsightsPage })));
 const ContactPage = lazy(() => import('./pages/ContactPage').then(m => ({ default: m.ContactPage })));
 
@@ -81,6 +82,9 @@ export const App: React.FC = () => {
 
                 {/* Projects & Portfolio Routes */}
                 <Route path="/projects" element={<ProjectsPage />} />
+
+                {/* Engineering Methodology & Workflow Route */}
+                <Route path="/workflow" element={<WorkflowPage />} />
 
                 {/* Insights Routes */}
                 <Route path="/insights" element={<InsightsPage />} />
