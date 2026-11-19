@@ -41,6 +41,8 @@ export const HeroSpatialCanvas: React.FC = () => {
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5));
     renderer.setClearColor(0xFFFFFF, 1);
+    renderer.domElement.style.maxWidth = '100%';
+    renderer.domElement.style.display = 'block';
     container.appendChild(renderer.domElement);
 
     // 2. High-Precision Lighting for Clean White Architectural Rendering

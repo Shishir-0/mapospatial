@@ -161,16 +161,16 @@ export const CapabilitiesSection: React.FC = () => {
           })}
         </div>
 
-        {/* Detailed Capability Panel (Right Column) */}
+        {/* Detailed Capability Panel (Right Column) with smooth tab transition */}
         <div className="lg:col-span-7">
-          <div className="p-6 sm:p-8 border border-[#DCE1E7] bg-[#FFFFFF] rounded-sm space-y-6 survey-corner shadow-sm">
+          <div key={active.id} className="p-6 sm:p-8 border border-[#DCE1E7] bg-[#FFFFFF] rounded-sm space-y-6 survey-corner shadow-sm animate-fade-in">
             
             {/* Real Deliverable Image Preview */}
             <div className="relative rounded-sm overflow-hidden border border-[#DCE1E7] bg-[#F7F8FA] aspect-[16/9] group">
               <img 
                 src={active.image} 
                 alt={`${active.name} Technical Deliverable`} 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#14233F]/90 via-[#14233F]/20 to-transparent flex items-end p-4">
                 <div className="font-mono text-xs text-white flex items-center justify-between w-full">
@@ -232,10 +232,10 @@ export const CapabilitiesSection: React.FC = () => {
 
               <Link
                 to={active.slug}
-                className="px-5 py-2.5 bg-[#14233F] hover:bg-[#0E1930] text-white border border-[#14233F] hover:border-[#B69A5A] transition-all flex items-center gap-2 font-semibold shadow-xs rounded-sm"
+                className="px-5 py-2.5 bg-[#14233F] hover:bg-[#0E1930] text-white border border-[#14233F] hover:border-[#B69A5A] transition-all duration-200 flex items-center gap-2 font-semibold shadow-xs hover:shadow-sm rounded-sm hover:-translate-y-0.5 active:translate-y-0 group"
               >
                 <span>Read Technical Specs</span>
-                <ArrowUpRight className="w-4 h-4 text-[#B69A5A]" />
+                <ArrowUpRight className="w-4 h-4 text-[#B69A5A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </Link>
             </div>
 

@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
                   }`}
                 >
                   <span>{link.name}</span>
-                  <span className={`absolute bottom-0 left-0 h-[2px] bg-[#B69A5A] transition-all duration-200 ${
+                  <span className={`absolute bottom-0 left-0 h-[2px] bg-[#B69A5A] transition-all duration-300 ease-out origin-left ${
                     isActive ? 'w-full' : 'w-0 group-hover:w-full'
                   }`} />
                 </Link>
@@ -90,10 +90,10 @@ export const Navbar: React.FC = () => {
             </span>
             <Link
               to="/contact"
-              className="px-4 py-2 text-xs font-mono font-medium tracking-wider uppercase text-white bg-[#14233F] hover:bg-[#0E1930] border border-[#14233F] hover:border-[#B69A5A] transition-all rounded-sm flex items-center gap-1.5 shadow-sm"
+              className="px-4 py-2 text-xs font-mono font-medium tracking-wider uppercase text-white bg-[#14233F] hover:bg-[#0E1930] border border-[#14233F] hover:border-[#B69A5A] transition-all duration-200 rounded-sm flex items-center gap-1.5 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 group"
             >
               <span>Discuss a Project</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#B69A5A]" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#B69A5A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
             </Link>
           </div>
 
@@ -118,9 +118,9 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with smooth slide/fade entrance */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bottom-0 bg-white/98 backdrop-blur-2xl border-t border-[#E3E7E8] p-6 overflow-y-auto z-50 shadow-2xl">
+        <div className="lg:hidden fixed inset-x-0 top-[60px] sm:top-[65px] bottom-0 bg-white/98 backdrop-blur-2xl border-t border-[#E3E7E8] p-6 overflow-y-auto z-50 shadow-2xl animate-fade-in">
           <div className="space-y-4 font-mono text-sm uppercase tracking-wider">
             {navLinks.map((link) => (
               <Link
@@ -135,10 +135,10 @@ export const Navbar: React.FC = () => {
             <div className="pt-6">
               <Link
                 to="/contact"
-                className="w-full flex items-center justify-center gap-2 py-3.5 text-xs font-mono uppercase text-white bg-[#14233F] hover:bg-[#0E1930] border border-[#B69A5A] rounded-sm shadow-md"
+                className="w-full flex items-center justify-center gap-2 py-3.5 text-xs font-mono uppercase text-white bg-[#14233F] hover:bg-[#0E1930] border border-[#B69A5A] rounded-sm shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group"
               >
                 <span>Discuss a Project</span>
-                <ArrowUpRight className="w-4 h-4 text-[#B69A5A]" />
+                <ArrowUpRight className="w-4 h-4 text-[#B69A5A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </Link>
             </div>
 

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../components/shared/Breadcrumbs';
+import { CompanyStatistics } from '../components/about/CompanyStatistics';
 import { ArrowUpRight, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
@@ -29,7 +30,7 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-white">
+    <div className="pt-28 pb-24 px-4 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-white">
       
       {/* Breadcrumb */}
       <Breadcrumbs items={[{ label: 'About Mapo Spatial' }]} />
@@ -52,6 +53,9 @@ export const AboutPage: React.FC = () => {
 
         </div>
       </div>
+
+      {/* PART 1: Company Statistics Section */}
+      <CompanyStatistics />
 
       {/* Mission & Purpose Section */}
       <div className="py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-[#DCE1E7]">

@@ -69,14 +69,14 @@ export const ProjectsPage: React.FC = () => {
         {filteredProjects.map((proj, idx) => (
           <div
             key={proj.id}
-            className="border border-[#DCE1E7] bg-[#FFFFFF] rounded-sm overflow-hidden flex flex-col justify-between survey-corner shadow-sm hover:shadow-md transition-all duration-300 group"
+            className="border border-[#DCE1E7] bg-[#FFFFFF] rounded-sm overflow-hidden flex flex-col justify-between survey-corner shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
           >
             {/* Visual Hero Image */}
             <div className="relative aspect-[16/10] overflow-hidden bg-[#F7F8FA] border-b border-[#DCE1E7]">
               <img 
                 src={proj.heroImage} 
                 alt={proj.title} 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#14233F]/90 via-[#14233F]/20 to-transparent flex items-end p-5">
                 <div className="font-mono text-xs text-white flex items-center justify-between w-full">
@@ -161,8 +161,8 @@ export const ProjectsPage: React.FC = () => {
 
       {/* Modal Detail View with Full Image Gallery */}
       {activeModalProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#14233F]/80 backdrop-blur-md">
-          <div className="relative w-full max-w-4xl bg-[#FFFFFF] border border-[#DCE1E7] p-6 sm:p-10 max-h-[92vh] overflow-y-auto space-y-6 rounded-sm shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#14233F]/80 backdrop-blur-md animate-fade-in">
+          <div className="relative w-full max-w-4xl bg-[#FFFFFF] border border-[#DCE1E7] p-6 sm:p-10 max-h-[92vh] overflow-y-auto space-y-6 rounded-sm shadow-2xl animate-scale-in">
             
             <button
               type="button"
