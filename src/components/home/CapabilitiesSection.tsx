@@ -96,25 +96,25 @@ export const CapabilitiesSection: React.FC = () => {
   const active = capabilities.find(c => c.id === selectedId) || capabilities[0];
 
   return (
-    <section className="py-24 sm:py-32 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-subtle-bg/40" id="capabilities">
+    <section className="py-24 sm:py-32 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-[#FFFFFF]" id="capabilities">
       
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 border-b border-subtle-border pb-8">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6 border-b border-[#DCE1E7] pb-8">
         <div className="space-y-3 max-w-2xl">
-          <span className="text-xs font-mono text-gold font-bold tracking-widest uppercase">
+          <span className="text-[13px] font-mono font-bold tracking-[0.08em] text-[#596579] uppercase block">
             [02 // CORE TECHNICAL DISCIPLINES]
           </span>
-          <h2 className="text-3xl sm:text-5xl font-display font-bold text-navy tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#14233F] tracking-tight">
             Engineering Capabilities
           </h2>
-          <p className="text-sm text-text-secondary font-light">
+          <p className="text-[17px] text-[#425168] font-normal leading-[1.6]">
             Verified reality capture, LiDAR processing, BIM modeling, and spatial digital twins delivered to global survey tolerances.
           </p>
         </div>
 
-        <div className="font-mono text-xs text-text-muted flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-gold" />
-          <span className="text-navy font-semibold">AUTHENTIC ASSETS // REAL DELIVERABLES</span>
+        <div className="font-mono text-xs text-[#536174] flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#B69A5A]" />
+          <span className="text-[#14233F] font-bold">AUTHENTIC ASSETS // REAL DELIVERABLES</span>
         </div>
       </div>
 
@@ -122,7 +122,7 @@ export const CapabilitiesSection: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Capability Nav Tabs (Left Column) */}
-        <div className="lg:col-span-5 space-y-2.5">
+        <div className="lg:col-span-5 space-y-3">
           {capabilities.map((cap, idx) => {
             const isSelected = selectedId === cap.id;
             return (
@@ -132,29 +132,27 @@ export const CapabilitiesSection: React.FC = () => {
                 onClick={() => setSelectedId(cap.id)}
                 className={`w-full text-left p-4 sm:p-5 transition-all border rounded-sm flex items-center justify-between group ${
                   isSelected
-                    ? 'bg-white border-gold text-navy shadow-md ring-1 ring-gold/20'
-                    : 'bg-white/70 border-subtle-border text-text-secondary hover:border-gold/40 hover:bg-white'
+                    ? 'bg-[#FFFFFF] border-[#B69A5A] text-[#14233F] shadow-sm ring-1 ring-[#B69A5A]'
+                    : 'bg-[#F7F8FA] border-[#DCE1E7] text-[#14233F] hover:border-[#B69A5A]/50 hover:bg-[#FFFFFF]'
                 }`}
               >
                 <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-[10px] font-mono">
-                    <span className={isSelected ? 'text-gold font-bold' : 'text-text-muted'}>
+                  <div className="flex items-center gap-2 text-[12px] font-mono">
+                    <span className={isSelected ? 'text-[#B69A5A] font-bold' : 'text-[#596579] font-bold'}>
                       0{idx + 1}
                     </span>
-                    <span className="text-text-muted">/</span>
-                    <span className={isSelected ? 'text-navy font-bold' : 'text-text-muted'}>
+                    <span className="text-[#DCE1E7]">/</span>
+                    <span className="text-[#596579] font-semibold uppercase tracking-wider text-[11px]">
                       {cap.category}
                     </span>
                   </div>
-                  <div className={`text-base font-display font-bold transition-colors ${
-                    isSelected ? 'text-navy' : 'text-navy/80 group-hover:text-navy'
-                  }`}>
+                  <div className="text-[17px] font-display font-bold text-[#14233F]">
                     {cap.name}
                   </div>
                 </div>
 
-                <div className={`text-xs font-mono transition-all ${
-                  isSelected ? 'text-gold font-bold translate-x-1' : 'text-text-muted group-hover:text-gold'
+                <div className={`text-sm font-mono font-bold transition-all ${
+                  isSelected ? 'text-[#B69A5A] translate-x-1' : 'text-[#596579] group-hover:text-[#B69A5A]'
                 }`}>
                   →
                 </div>
@@ -165,21 +163,21 @@ export const CapabilitiesSection: React.FC = () => {
 
         {/* Detailed Capability Panel (Right Column) */}
         <div className="lg:col-span-7">
-          <div className="p-6 sm:p-8 border border-subtle-border bg-white rounded-sm space-y-6 survey-corner shadow-lg">
+          <div className="p-6 sm:p-8 border border-[#DCE1E7] bg-[#FFFFFF] rounded-sm space-y-6 survey-corner shadow-sm">
             
             {/* Real Deliverable Image Preview */}
-            <div className="relative rounded-sm overflow-hidden border border-subtle-border bg-warm-white aspect-[16/9] group">
+            <div className="relative rounded-sm overflow-hidden border border-[#DCE1E7] bg-[#F7F8FA] aspect-[16/9] group">
               <img 
                 src={active.image} 
                 alt={`${active.name} Technical Deliverable`} 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent flex items-end p-4">
-                <div className="font-mono text-[11px] text-white flex items-center justify-between w-full">
-                  <span className="bg-navy/90 px-2.5 py-1 rounded-sm border border-gold/40 text-gold font-semibold uppercase">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#14233F]/90 via-[#14233F]/20 to-transparent flex items-end p-4">
+                <div className="font-mono text-xs text-white flex items-center justify-between w-full">
+                  <span className="bg-[#14233F] px-3 py-1 rounded-sm border border-[#B69A5A]/50 text-[#B69A5A] font-bold uppercase text-[11px]">
                     DELIVERABLE: {active.name}
                   </span>
-                  <span className="hidden sm:inline-block bg-black/60 px-2 py-1 rounded-sm">
+                  <span className="hidden sm:inline-block bg-black/70 px-2.5 py-1 rounded-sm text-slate-200 text-[11px]">
                     {active.specs}
                   </span>
                 </div>
@@ -187,56 +185,57 @@ export const CapabilitiesSection: React.FC = () => {
             </div>
 
             {/* Capability Info Header */}
-            <div className="space-y-2 pb-4 border-b border-subtle-border">
-              <div className="flex items-center justify-between font-mono text-xs">
-                <span className="text-gold uppercase tracking-wider font-bold">
+            <div className="space-y-2 pb-4 border-b border-[#DCE1E7]">
+              <div className="flex items-center justify-between font-mono text-[13px]">
+                <span className="text-[#596579] uppercase tracking-[0.08em] font-bold text-xs">
                   {active.category}
                 </span>
-                <span className="text-text-muted text-[11px]">
+                <span className="text-[#536174] font-semibold text-[13px]">
                   {active.specs}
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-display font-bold text-navy leading-tight">
+              <h3 className="text-2xl sm:text-[34px] font-display font-extrabold text-[#14233F] leading-tight">
                 {active.name}
               </h3>
 
-              <div className="text-xs font-mono text-text-secondary">
+              <div className="text-[14px] font-mono text-[#536174] font-medium">
                 {active.headline}
               </div>
             </div>
 
-            <p className="text-sm text-text-secondary font-light leading-relaxed">
+            {/* Service Description */}
+            <p className="text-[17px] text-[#425168] font-normal leading-[1.65]">
               {active.summary}
             </p>
 
-            {/* Deliverables List */}
+            {/* Deliverables List (High Contrast Deliverable Cards) */}
             <div className="space-y-3 pt-1">
-              <div className="text-xs font-mono text-navy font-bold uppercase tracking-wider">
+              <div className="text-xs font-mono text-[#596579] font-bold uppercase tracking-[0.08em]">
                 Engineering Deliverables
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {active.deliverables.map((del, dIdx) => (
-                  <div key={dIdx} className="flex items-center gap-2 text-xs text-navy font-mono bg-warm-white p-2 rounded-sm border border-subtle-border/70">
-                    <Check className="w-3.5 h-3.5 text-gold shrink-0" />
-                    <span className="line-clamp-1">{del}</span>
+                  <div key={dIdx} className="flex items-center gap-2.5 p-3 bg-[#F7F8FA] rounded-sm border border-[#DCE1E7]">
+                    <Check className="w-4 h-4 text-[#B69A5A] shrink-0 font-bold" />
+                    <span className="text-[13px] font-semibold text-[#425168] leading-snug">{del}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Footer Action */}
-            <div className="pt-4 border-t border-subtle-border flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-wider">
-              <span className="text-text-muted text-[11px]">
+            <div className="pt-4 border-t border-[#DCE1E7] flex flex-wrap items-center justify-between gap-4 font-mono text-xs uppercase tracking-wider">
+              <span className="text-[#657184] text-[12px] font-medium">
                 DELIVERY PROTOCOL // SUB-MILLIMETER AUDIT
               </span>
 
               <Link
                 to={active.slug}
-                className="px-5 py-2.5 bg-navy hover:bg-navy-deep text-white border border-navy hover:border-gold transition-all flex items-center gap-2 font-semibold shadow-sm rounded-sm"
+                className="px-5 py-2.5 bg-[#14233F] hover:bg-[#0E1930] text-white border border-[#14233F] hover:border-[#B69A5A] transition-all flex items-center gap-2 font-semibold shadow-xs rounded-sm"
               >
                 <span>Read Technical Specs</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-gold" />
+                <ArrowUpRight className="w-4 h-4 text-[#B69A5A]" />
               </Link>
             </div>
 

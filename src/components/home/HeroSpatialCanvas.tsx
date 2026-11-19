@@ -20,17 +20,18 @@ export const HeroSpatialCanvas: React.FC = () => {
     const isMobile = window.innerWidth < 768;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // 1. Scene, Deep Spatial Atmosphere & Camera
+    // 1. Scene, Pure White Background (#FFFFFF) & Atmospheric White Fog
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x080B10); // Deep Spatial Primary
-    scene.fog = new THREE.FogExp2(0x080B10, 0.010); // Atmospheric perspective
+    scene.background = new THREE.Color(0xFFFFFF); // Pure White Environment
+    scene.fog = new THREE.FogExp2(0xFFFFFF, 0.006); // Atmospheric depth on white
 
     const width = container.clientWidth || window.innerWidth;
     const height = container.clientHeight || window.innerHeight;
 
     const camera = new THREE.PerspectiveCamera(46, width / height, 0.1, 1000);
-    camera.position.set(22, 28, 52);
-    camera.lookAt(0, -2, 0);
+    // Positioned to provide clear spatial depth with center of visual interest on center-right
+    camera.position.set(32, 28, 56);
+    camera.lookAt(18, -2, 0);
 
     const renderer = new THREE.WebGLRenderer({
       alpha: false,
@@ -39,23 +40,23 @@ export const HeroSpatialCanvas: React.FC = () => {
     });
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5));
-    renderer.setClearColor(0x080B10, 1);
+    renderer.setClearColor(0xFFFFFF, 1);
     container.appendChild(renderer.domElement);
 
-    // 2. Ambient & Directional Architectural Lights
-    const ambientLight = new THREE.AmbientLight(0x111923, 1.2);
+    // 2. High-Precision Lighting for Clean White Architectural Rendering
+    const ambientLight = new THREE.AmbientLight(0xFFFFFF, 1.5);
     scene.add(ambientLight);
 
-    const keySilverLight = new THREE.DirectionalLight(0x8E9BAE, 1.5);
-    keySilverLight.position.set(40, 60, 30);
-    scene.add(keySilverLight);
+    const directionalKey = new THREE.DirectionalLight(0x14233F, 1.2);
+    directionalKey.position.set(50, 70, 40);
+    scene.add(directionalKey);
 
-    const subtleGoldLight = new THREE.DirectionalLight(0xB69A5A, 1.8);
-    subtleGoldLight.position.set(-35, 45, -20);
-    scene.add(subtleGoldLight);
+    const subtleGoldRim = new THREE.DirectionalLight(0xB69A5A, 1.6);
+    subtleGoldRim.position.set(-30, 50, -20);
+    scene.add(subtleGoldRim);
 
-    // 3. Expansive 3D Topographic Terrain Surface (Spans the full viewport)
-    const terrainSpan = isMobile ? 160 : 240;
+    // 3. Expansive 3D Topographic Terrain Surface (Shifted to balance text zone on left)
+    const terrainSpan = isMobile ? 160 : 250;
     const gridRes = isMobile ? 54 : 96;
     const terrainGeo = new THREE.PlaneGeometry(terrainSpan, terrainSpan, gridRes, gridRes);
     terrainGeo.rotateX(-Math.PI / 2);
@@ -77,25 +78,27 @@ export const HeroSpatialCanvas: React.FC = () => {
     }
     terrainGeo.computeVertexNormals();
 
+    // Muted grey wireframe (Slate 500) with balanced contrast against #FFFFFF
     const terrainMat = new THREE.MeshBasicMaterial({
-      color: 0x273341, // Subtle spatial geometry line
+      color: 0x64748B,
       wireframe: true,
       transparent: true,
-      opacity: 0.32,
+      opacity: 0.30,
     });
     const terrainMesh = new THREE.Mesh(terrainGeo, terrainMat);
-    terrainMesh.position.y = -6;
+    terrainMesh.position.set(16, -6, 0); // Subtle shift to right for text clearance
     scene.add(terrainMesh);
 
-    // 4. Topographic Contour Lines (Elevation slices across the terrain)
+    // 4. Topographic Elevation Contour Lines (Slate grey elevation loops)
     const contourGroup = new THREE.Group();
+    contourGroup.position.set(16, 0, 0);
     scene.add(contourGroup);
 
     const contourIntervals = [-4, -1, 2, 5, 8];
     const contourMat = new THREE.LineBasicMaterial({
-      color: 0x566373, // Graphite / Silver contour
+      color: 0x334155, // Crisp Slate Contour Line
       transparent: true,
-      opacity: 0.45,
+      opacity: 0.50,
     });
 
     contourIntervals.forEach((level) => {
@@ -126,46 +129,43 @@ export const HeroSpatialCanvas: React.FC = () => {
       }
     });
 
-    // 5. Large Spatial LiDAR Point-Cloud Formations (Expansive coverage across viewport)
-    const particleCount = isMobile ? 4200 : 9200;
+    // 5. Large Spatial LiDAR Point-Cloud Formations (Biased towards right to keep text legible)
+    const particleCount = isMobile ? 4200 : 8800;
     const pointGeo = new THREE.BufferGeometry();
     const pointPositions = new Float32Array(particleCount * 3);
     const pointColors = new Float32Array(particleCount * 3);
 
-    const cGraphite = new THREE.Color(0x3D4A59);
-    const cSilver = new THREE.Color(0x8E9BAE);
-    const cDepth = new THREE.Color(0x111923);
+    const cNavy = new THREE.Color(0x14233F); // Primary navy
+    const cSilver = new THREE.Color(0x475569); // Slate silver
     const cGold = new THREE.Color(0xB69A5A); // Restrained Mapo Gold
 
     for (let i = 0; i < particleCount; i++) {
-      const x = (Math.random() - 0.5) * (terrainSpan * 0.95);
-      const z = (Math.random() - 0.5) * (terrainSpan * 0.95);
-      const dist = Math.sqrt(x * x + z * z);
+      // Compositional density bias: more points clustered on the right half (x > -10)
+      const u = Math.random();
+      const x = (u * 1.2 - 0.3) * (terrainSpan * 0.5) + 16;
+      const z = (Math.random() - 0.5) * (terrainSpan * 0.9);
+      const dist = Math.sqrt((x - 16) * (x - 16) + z * z);
 
       const baseElev =
-        Math.sin(x * 0.045) * Math.cos(z * 0.045) * 6.5 +
-        Math.sin(x * 0.09 + z * 0.07) * 3.8 +
-        Math.cos(x * 0.02 - z * 0.035) * 4.5 -
+        Math.sin((x - 16) * 0.045) * Math.cos(z * 0.045) * 6.5 +
+        Math.sin((x - 16) * 0.09 + z * 0.07) * 3.8 +
+        Math.cos((x - 16) * 0.02 - z * 0.035) * 4.5 -
         (dist * 0.065) - 6;
 
-      const y = baseElev + (Math.random() * 1.8 - 0.9);
+      const y = baseElev + (Math.random() * 1.6 - 0.8);
 
       pointPositions[i * 3] = x;
       pointPositions[i * 3 + 1] = y;
       pointPositions[i * 3 + 2] = z;
 
-      // 12% Gold Survey Coordinates, remainder stratified from depth to silver
-      const isGold = Math.random() < 0.12;
+      // 14% Gold survey points, remainder in navy/silver
+      const isGold = Math.random() < 0.14;
       const pCol = new THREE.Color();
       if (isGold) {
         pCol.copy(cGold);
       } else {
         const normY = THREE.MathUtils.clamp((y + 12) / 22, 0, 1);
-        if (normY < 0.5) {
-          pCol.lerpColors(cDepth, cGraphite, normY * 2);
-        } else {
-          pCol.lerpColors(cGraphite, cSilver, (normY - 0.5) * 2);
-        }
+        pCol.lerpColors(cNavy, cSilver, normY);
       }
 
       pointColors[i * 3] = pCol.r;
@@ -177,38 +177,39 @@ export const HeroSpatialCanvas: React.FC = () => {
     pointGeo.setAttribute('color', new THREE.BufferAttribute(pointColors, 3));
 
     const pointMat = new THREE.PointsMaterial({
-      size: isMobile ? 1.0 : 1.4,
+      size: isMobile ? 1.2 : 1.5,
       vertexColors: true,
       transparent: true,
-      opacity: 0.82,
+      opacity: 0.85,
     });
     const pointCloud = new THREE.Points(pointGeo, pointMat);
     scene.add(pointCloud);
 
-    // 6. Architectural Massing & Spatial Coordinates (Survey Geometry)
+    // 6. Architectural Massing & Structural Coordinates (Gold wireframe in center-right)
     const archGroup = new THREE.Group();
-    archGroup.position.set(12, 1, 4);
+    archGroup.position.set(28, 1, 6);
     scene.add(archGroup);
 
     const bBox = new THREE.BoxGeometry(22, 16, 22);
     const bEdges = new THREE.EdgesGeometry(bBox);
     const bWireMat = new THREE.LineBasicMaterial({
-      color: 0xB69A5A, // Gold wireframe
+      color: 0xB69A5A, // Restrained Mapo Gold wireframe
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.90,
+      linewidth: 1.5,
     });
     const archWire = new THREE.LineSegments(bEdges, bWireMat);
     archGroup.add(archWire);
 
-    // Horizontal structural floor plates
+    // Floor slabs in soft grey
     [-5, 0, 5].forEach((fy) => {
       const slabGeo = new THREE.PlaneGeometry(21.8, 21.8);
       slabGeo.rotateX(-Math.PI / 2);
       const slabMat = new THREE.MeshBasicMaterial({
-        color: 0x273341,
+        color: 0x64748B,
         wireframe: true,
         transparent: true,
-        opacity: 0.25,
+        opacity: 0.35,
       });
       const slab = new THREE.Mesh(slabGeo, slabMat);
       slab.position.y = fy;
@@ -216,25 +217,26 @@ export const HeroSpatialCanvas: React.FC = () => {
     });
 
     // 7. Subtle Survey Scanning Laser Plane (Sweeps continuously across terrain)
-    const scanPlaneGeo = new THREE.PlaneGeometry(terrainSpan * 0.85, 1.6);
+    const scanPlaneGeo = new THREE.PlaneGeometry(terrainSpan * 0.85, 1.8);
     scanPlaneGeo.rotateX(-Math.PI / 2);
     const scanPlaneMat = new THREE.MeshBasicMaterial({
       color: 0xB69A5A, // Restrained Gold laser
       transparent: true,
-      opacity: 0.40,
+      opacity: 0.45,
       side: THREE.DoubleSide,
     });
     const scanBeam = new THREE.Mesh(scanPlaneGeo, scanPlaneMat);
-    scanBeam.position.y = -5.5;
+    scanBeam.position.set(16, -5.5, 0);
     scene.add(scanBeam);
 
-    // 8. Spatial Coordinate Markers (+) on the perimeter
+    // 8. Spatial Survey Coordinate Markers (+) on the perimeter
     const markerGroup = new THREE.Group();
+    markerGroup.position.set(16, 0, 0);
     scene.add(markerGroup);
-    const crossMat = new THREE.LineBasicMaterial({ color: 0x8E9BAE, transparent: true, opacity: 0.5 });
+    const crossMat = new THREE.LineBasicMaterial({ color: 0x334155, transparent: true, opacity: 0.65 });
     
-    for (let mx = -60; mx <= 60; mx += 30) {
-      for (let mz = -60; mz <= 60; mz += 30) {
+    for (let mx = -50; mx <= 50; mx += 25) {
+      for (let mz = -50; mz <= 50; mz += 25) {
         if (Math.random() < 0.4) continue;
         const crossGeo = new THREE.BufferGeometry();
         const pts = new Float32Array([
@@ -274,14 +276,14 @@ export const HeroSpatialCanvas: React.FC = () => {
         scanBeam.position.z = Math.sin(elapsed * 0.55) * (terrainSpan * 0.35);
 
         // 12-second ambient smooth camera orbit & breathing (smooth loop, no abrupt reset)
-        const ambientOrbitX = Math.sin(elapsed * 0.12) * 6;
-        const ambientOrbitY = Math.cos(elapsed * 0.08) * 3;
-        const targetCamX = 22 + ambientOrbitX + (mouseX * 5);
-        const targetCamY = 28 + ambientOrbitY - (mouseY * 4);
+        const ambientOrbitX = Math.sin(elapsed * 0.12) * 4;
+        const ambientOrbitY = Math.cos(elapsed * 0.08) * 2;
+        const targetCamX = 32 + ambientOrbitX + (mouseX * 4);
+        const targetCamY = 28 + ambientOrbitY - (mouseY * 3);
 
         camera.position.x += (targetCamX - camera.position.x) * 0.035;
         camera.position.y += (targetCamY - camera.position.y) * 0.035;
-        camera.lookAt(0, -2, 0);
+        camera.lookAt(18, -2, 0);
 
         // Slow ambient scene rotation
         terrainMesh.rotation.y = elapsed * 0.015;
@@ -331,7 +333,7 @@ export const HeroSpatialCanvas: React.FC = () => {
   return (
     <div 
       ref={containerRef}
-      className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden"
+      className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden bg-white"
       aria-hidden="true"
     />
   );

@@ -6,13 +6,8 @@ import {
   ArrowRight, 
   CheckCircle2, 
   FileCheck, 
-  Scan, 
-  Layers, 
   Cpu, 
-  ShieldCheck, 
-  PackageCheck,
-  ChevronRight,
-  ExternalLink
+  PackageCheck
 } from 'lucide-react';
 
 interface WorkflowStep {
@@ -304,63 +299,61 @@ export const WorkflowPage: React.FC = () => {
     }
   ];
 
-  const currentStep = workflowSteps.find(s => s.id === activeStepId) || workflowSteps[0];
-
   return (
-    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-white">
+    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-[#FFFFFF] text-[#425168]">
       
       {/* Breadcrumb Navigation */}
       <Breadcrumbs items={[{ label: 'Engineering Methodology & Workflow' }]} />
 
       {/* WORKFLOW OPENING HERO */}
-      <div className="py-12 border-b border-subtle-border">
+      <div className="py-12 border-b border-[#DCE1E7]">
         <div className="max-w-4xl space-y-5">
           
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-gold" />
-            <span className="text-xs font-mono text-gold font-bold tracking-widest uppercase block">
+            <span className="w-2 h-2 rounded-full bg-[#B69A5A]" />
+            <span className="text-[13px] font-mono text-[#596579] font-bold tracking-[0.08em] uppercase block">
               ENGINEERING METHODOLOGY // END-TO-END LIFECYCLE
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-navy leading-[1.08] tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-display font-extrabold text-[#14233F] leading-[1.08] tracking-tight">
             From physical reality to <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy via-navy to-navy-deep">
+            <span className="text-[#14233F]">
               engineering-ready intelligence.
             </span>
           </h1>
 
-          <p className="text-base sm:text-xl text-text-secondary font-light leading-relaxed pt-2">
+          <p className="text-[18px] sm:text-[20px] text-[#425168] font-normal leading-[1.6] pt-1 max-w-3xl">
             Every project follows a structured process that transforms physical environments into accurate, coordinated and usable digital information.
           </p>
 
           {/* Quick Technical Architecture Metrics */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-subtle-border font-mono text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-[#DCE1E7] font-mono text-xs">
             <div>
-              <span className="text-[10px] text-text-muted uppercase block">METHODOLOGY</span>
-              <span className="text-navy font-bold">6-Stage Structured Flow</span>
+              <span className="text-[11px] text-[#536174] uppercase block font-medium">METHODOLOGY</span>
+              <span className="text-[#14233F] font-bold text-sm">6-Stage Structured Flow</span>
             </div>
             <div>
-              <span className="text-[10px] text-text-muted uppercase block">VERIFICATION</span>
-              <span className="text-navy font-bold">Deviation Heatmaps (±3mm)</span>
+              <span className="text-[11px] text-[#536174] uppercase block font-medium">VERIFICATION</span>
+              <span className="text-[#14233F] font-bold text-sm">Deviation Heatmaps (±3mm)</span>
             </div>
             <div>
-              <span className="text-[10px] text-text-muted uppercase block">DELIVERABLE STANDARDS</span>
-              <span className="text-navy font-bold">LOD 100 - 500 / ASPRS</span>
+              <span className="text-[11px] text-[#536174] uppercase block font-medium">DELIVERABLE STANDARDS</span>
+              <span className="text-[#14233F] font-bold text-sm">LOD 100 - 500 / ASPRS</span>
             </div>
             <div>
-              <span className="text-[10px] text-text-muted uppercase block">EXECUTION HUB</span>
-              <span className="text-navy font-bold">Bengaluru // UK Operations</span>
+              <span className="text-[11px] text-[#536174] uppercase block font-medium">EXECUTION HUB</span>
+              <span className="text-[#14233F] font-bold text-sm">Bengaluru // UK Operations</span>
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* QUICK STEP JUMP BAR (Sticky Navigation for Seamless Exploration) */}
-      <div className="py-6 border-b border-subtle-border sticky top-[68px] bg-white/95 backdrop-blur-md z-30 overflow-x-auto">
+      {/* QUICK STEP JUMP BAR (Sticky Navigation with Zero Faded Inactive States) */}
+      <div className="py-4 border-b border-[#DCE1E7] sticky top-[68px] bg-[#FFFFFF]/95 backdrop-blur-md z-30 overflow-x-auto">
         <div className="flex items-center space-x-2 sm:space-x-3 min-w-max font-mono text-xs">
-          <span className="text-text-muted text-[11px] uppercase mr-2 font-bold">STAGES:</span>
+          <span className="text-[#596579] text-[12px] uppercase mr-2 font-bold">STAGES:</span>
           {workflowSteps.map((st) => {
             const isActive = activeStepId === st.id;
             return (
@@ -372,14 +365,14 @@ export const WorkflowPage: React.FC = () => {
                   const el = document.getElementById(st.id);
                   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className={`px-3 py-1.5 transition-all border rounded-sm flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 transition-all border rounded-sm flex items-center gap-1.5 ${
                   isActive
-                    ? 'bg-navy text-white border-navy font-bold shadow-sm'
-                    : 'bg-warm-white text-navy border-subtle-border hover:border-gold hover:bg-white'
+                    ? 'bg-[#14233F] text-white border-[#14233F] font-bold shadow-xs'
+                    : 'bg-[#F7F8FA] text-[#14233F] border-[#DCE1E7] hover:border-[#B69A5A] hover:bg-[#FFFFFF] font-semibold'
                 }`}
               >
-                <span className={isActive ? 'text-gold' : 'text-text-muted'}>{st.stepNumber}</span>
-                <span className="hidden md:inline">{st.title.split(' ')[0]}</span>
+                <span className={isActive ? 'text-[#B69A5A]' : 'text-[#596579] font-bold'}>{st.stepNumber}</span>
+                <span>{st.title.split(' ')[0]}</span>
               </button>
             );
           })}
@@ -387,12 +380,12 @@ export const WorkflowPage: React.FC = () => {
       </div>
 
       {/* VERTICAL PROCESS TIMELINE WITH DETAILED 6 STAGES */}
-      <div className="py-16 relative">
+      <div className="py-14 relative">
         
         {/* Continuous Connecting Technical Line */}
-        <div className="hidden lg:block absolute left-[31px] top-24 bottom-24 w-[2px] bg-gradient-to-b from-gold via-navy to-gold" />
+        <div className="hidden lg:block absolute left-[31px] top-20 bottom-20 w-[2px] bg-[#DCE1E7]" />
 
-        <div className="space-y-24">
+        <div className="space-y-20">
           {workflowSteps.map((step, idx) => (
             <article
               key={step.id}
@@ -401,33 +394,33 @@ export const WorkflowPage: React.FC = () => {
             >
               
               {/* Timeline Marker Pin */}
-              <div className="hidden lg:flex absolute left-0 top-0 w-16 h-16 rounded-full bg-warm-white border-2 border-gold items-center justify-center font-mono font-bold text-navy shadow-md z-10">
+              <div className="hidden lg:flex absolute left-0 top-0 w-16 h-16 rounded-full bg-[#FFFFFF] border-2 border-[#14233F] items-center justify-center font-mono font-bold text-[#14233F] shadow-sm z-10">
                 <span className="text-lg">{step.stepNumber}</span>
               </div>
 
-              {/* Step Card Container */}
-              <div className="p-6 sm:p-10 border border-subtle-border bg-white rounded-sm space-y-8 survey-corner shadow-lg transition-all hover:shadow-xl">
+              {/* Step Card Container (No low opacity anywhere) */}
+              <div className="p-6 sm:p-10 border border-[#DCE1E7] bg-[#FFFFFF] rounded-sm space-y-8 survey-corner shadow-sm">
                 
                 {/* Step Header */}
-                <div className="flex flex-col md:flex-row md:items-start justify-between pb-6 border-b border-subtle-border gap-4">
-                  <div className="space-y-2">
-                    <span className="text-xs font-mono text-gold font-bold tracking-widest uppercase block">
+                <div className="flex flex-col md:flex-row md:items-start justify-between pb-6 border-b border-[#DCE1E7] gap-4">
+                  <div className="space-y-2 max-w-3xl">
+                    <span className="text-[12px] font-mono text-[#596579] font-bold tracking-[0.08em] uppercase block">
                       {step.eyebrow}
                     </span>
-                    <h2 className="text-2xl sm:text-4xl font-display font-bold text-navy leading-tight">
+                    <h2 className="text-2xl sm:text-[30px] font-display font-extrabold text-[#14233F] leading-tight">
                       Step {step.stepNumber}: {step.title}
                     </h2>
-                    <p className="text-sm sm:text-base text-text-secondary font-mono pt-1">
+                    <p className="text-[16px] text-[#425168] font-normal leading-[1.6]">
                       {step.summary}
                     </p>
                   </div>
 
                   <Link
                     to={step.connectedCapability.href}
-                    className="font-mono text-xs uppercase tracking-wider text-navy hover:text-gold flex items-center gap-1.5 transition-colors font-bold shrink-0 mt-2 bg-warm-white px-3.5 py-2 rounded-sm border border-subtle-border hover:border-gold"
+                    className="font-mono text-xs uppercase tracking-wider text-[#14233F] hover:text-[#B69A5A] flex items-center gap-1.5 transition-colors font-bold shrink-0 mt-2 bg-[#F7F8FA] px-4 py-2.5 rounded-sm border border-[#DCE1E7] hover:border-[#B69A5A]"
                   >
                     <span>{step.connectedCapability.name}</span>
-                    <ArrowUpRight className="w-4 h-4 text-gold" />
+                    <ArrowUpRight className="w-4 h-4 text-[#B69A5A]" />
                   </Link>
                 </div>
 
@@ -436,46 +429,46 @@ export const WorkflowPage: React.FC = () => {
                   
                   {/* Left: Authentic Deliverable Visual */}
                   <div className="lg:col-span-6 space-y-3">
-                    <div className="relative rounded-sm overflow-hidden border border-subtle-border bg-warm-white aspect-[16/10] shadow-sm group">
+                    <div className="relative rounded-sm overflow-hidden border border-[#DCE1E7] bg-[#F7F8FA] aspect-[16/10] shadow-xs group">
                       <img 
                         src={step.visualImage} 
                         alt={step.title} 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-transparent to-transparent flex items-end p-4">
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#14233F]/90 via-transparent to-transparent flex items-end p-4">
                         <div className="font-mono text-xs text-white flex items-center justify-between w-full">
-                          <span className="bg-navy px-3 py-1 rounded-sm border border-gold/40 text-gold font-bold">
+                          <span className="bg-[#14233F] px-3 py-1 rounded-sm border border-[#B69A5A]/50 text-[#B69A5A] font-bold">
                             PHASE 0{idx + 1} ASSET
                           </span>
-                          <span className="bg-black/60 px-2.5 py-1 rounded-sm text-slate-200">
+                          <span className="bg-black/70 px-2.5 py-1 rounded-sm text-slate-200">
                             VERIFIED METHODOLOGY
                           </span>
                         </div>
                       </div>
                     </div>
-                    <div className="font-mono text-[11px] text-text-muted px-1 flex items-center justify-between">
+                    <div className="font-mono text-[12px] text-[#536174] px-1 flex items-center justify-between font-medium">
                       <span>{step.visualCaption}</span>
-                      <span className="text-gold font-bold">STAGE {step.stepNumber}/06</span>
+                      <span className="text-[#14233F] font-bold">STAGE {step.stepNumber}/06</span>
                     </div>
                   </div>
 
                   {/* Right: Substantial Engineering Narrative */}
                   <div className="lg:col-span-6 space-y-4">
-                    <div className="text-xs font-mono text-navy font-bold uppercase tracking-wider border-b border-subtle-border pb-2">
+                    <div className="text-[13px] font-mono text-[#14233F] font-bold uppercase tracking-[0.08em] border-b border-[#DCE1E7] pb-2">
                       Engineering Execution Details
                     </div>
                     {step.narrative.map((p, pIdx) => (
-                      <p key={pIdx} className="text-sm text-text-secondary font-light leading-relaxed">
+                      <p key={pIdx} className="text-[16px] text-[#425168] font-normal leading-[1.6]">
                         {p}
                       </p>
                     ))}
 
                     {step.technicalNotes && (
-                      <div className="p-4 bg-warm-white border border-subtle-border rounded-sm font-mono text-xs text-navy space-y-1">
-                        <span className="text-gold block text-[10px] uppercase font-bold">
+                      <div className="p-4 bg-[#F7F8FA] border border-[#DCE1E7] rounded-sm font-mono text-xs text-[#14233F] space-y-1">
+                        <span className="text-[#596579] block text-[11px] uppercase font-bold">
                           TECHNICAL ASSURANCE:
                         </span>
-                        <p className="font-medium text-navy/90">{step.technicalNotes}</p>
+                        <p className="font-semibold text-[#14233F] text-[13px]">{step.technicalNotes}</p>
                       </div>
                     )}
                   </div>
@@ -483,51 +476,51 @@ export const WorkflowPage: React.FC = () => {
                 </div>
 
                 {/* Structured Inputs, Activities & Expected Outputs (Engineering Matrix) */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-subtle-border font-mono text-xs">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#DCE1E7] font-mono text-xs">
                   
                   {/* Inputs */}
-                  <div className="space-y-3 p-5 bg-warm-white border border-subtle-border rounded-sm">
-                    <div className="flex items-center gap-2 text-navy font-bold uppercase tracking-wider pb-2 border-b border-subtle-border">
-                      <FileCheck className="w-4 h-4 text-gold" />
+                  <div className="space-y-3 p-5 bg-[#F7F8FA] border border-[#DCE1E7] rounded-sm">
+                    <div className="flex items-center gap-2 text-[#14233F] font-bold uppercase tracking-wider pb-2 border-b border-[#DCE1E7] text-[13px]">
+                      <FileCheck className="w-4 h-4 text-[#B69A5A]" />
                       <span>Required Inputs</span>
                     </div>
-                    <ul className="space-y-2 text-text-secondary text-[11px]">
+                    <ul className="space-y-2 text-[#425168] text-[12px]">
                       {step.inputs.map((inp, iIdx) => (
                         <li key={iIdx} className="flex items-start gap-2">
-                          <span className="text-navy font-bold">•</span>
-                          <span>{inp}</span>
+                          <span className="text-[#14233F] font-bold">•</span>
+                          <span className="font-medium">{inp}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Process Activities */}
-                  <div className="space-y-3 p-5 bg-warm-white border border-subtle-border rounded-sm">
-                    <div className="flex items-center gap-2 text-navy font-bold uppercase tracking-wider pb-2 border-b border-subtle-border">
-                      <Cpu className="w-4 h-4 text-gold" />
+                  <div className="space-y-3 p-5 bg-[#F7F8FA] border border-[#DCE1E7] rounded-sm">
+                    <div className="flex items-center gap-2 text-[#14233F] font-bold uppercase tracking-wider pb-2 border-b border-[#DCE1E7] text-[13px]">
+                      <Cpu className="w-4 h-4 text-[#B69A5A]" />
                       <span>Process Activities</span>
                     </div>
-                    <ul className="space-y-2 text-text-secondary text-[11px]">
+                    <ul className="space-y-2 text-[#425168] text-[12px]">
                       {step.activities.map((act, aIdx) => (
                         <li key={aIdx} className="flex items-start gap-2">
-                          <span className="text-gold font-bold">→</span>
-                          <span>{act}</span>
+                          <span className="text-[#B69A5A] font-bold">→</span>
+                          <span className="font-medium">{act}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Expected Outputs */}
-                  <div className="space-y-3 p-5 bg-warm-white border border-subtle-border rounded-sm">
-                    <div className="flex items-center gap-2 text-navy font-bold uppercase tracking-wider pb-2 border-b border-subtle-border">
-                      <PackageCheck className="w-4 h-4 text-gold" />
+                  <div className="space-y-3 p-5 bg-[#F7F8FA] border border-[#DCE1E7] rounded-sm">
+                    <div className="flex items-center gap-2 text-[#14233F] font-bold uppercase tracking-wider pb-2 border-b border-[#DCE1E7] text-[13px]">
+                      <PackageCheck className="w-4 h-4 text-[#B69A5A]" />
                       <span>Expected Outputs</span>
                     </div>
-                    <ul className="space-y-2 text-navy text-[11px]">
+                    <ul className="space-y-2 text-[#14233F] text-[12px]">
                       {step.outputs.map((out, oIdx) => (
                         <li key={oIdx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
-                          <span className="font-medium">{out}</span>
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#B69A5A] shrink-0 mt-0.5" />
+                          <span className="font-bold">{out}</span>
                         </li>
                       ))}
                     </ul>
@@ -536,11 +529,11 @@ export const WorkflowPage: React.FC = () => {
                 </div>
 
                 {/* Supported Deliverable Badges */}
-                <div className="pt-4 border-t border-subtle-border flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+                <div className="pt-4 border-t border-[#DCE1E7] flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-[10px] text-text-muted uppercase font-bold">Supported Deliverables:</span>
+                    <span className="text-[11px] text-[#596579] uppercase font-bold">Supported Deliverables:</span>
                     {step.deliverablesSupported.map((del, dIdx) => (
-                      <span key={dIdx} className="px-2.5 py-1 bg-white border border-subtle-border rounded-sm text-[11px] text-navy font-semibold shadow-xs">
+                      <span key={dIdx} className="px-2.5 py-1 bg-[#FFFFFF] border border-[#DCE1E7] rounded-sm text-[12px] text-[#14233F] font-bold shadow-xs">
                         {del}
                       </span>
                     ))}
@@ -548,10 +541,10 @@ export const WorkflowPage: React.FC = () => {
 
                   <Link
                     to={step.connectedCapability.href}
-                    className="text-navy hover:text-gold flex items-center gap-1 font-bold transition-colors"
+                    className="text-[#14233F] hover:text-[#B69A5A] flex items-center gap-1 font-bold transition-colors text-[13px]"
                   >
                     <span>Inspect Related Capability</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-gold" />
+                    <ArrowRight className="w-4 h-4 text-[#B69A5A]" />
                   </Link>
                 </div>
 
@@ -564,19 +557,19 @@ export const WorkflowPage: React.FC = () => {
 
       {/* CLOSING CONVERSION SECTION */}
       <div className="py-16">
-        <div className="p-8 sm:p-14 border border-subtle-border bg-warm-white rounded-sm space-y-8 survey-corner shadow-xl">
+        <div className="p-8 sm:p-14 border border-[#DCE1E7] bg-[#F7F8FA] rounded-sm space-y-8 survey-corner shadow-sm">
           
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-mono text-gold font-bold tracking-widest uppercase block">
+            <span className="text-[12px] font-mono text-[#596579] font-bold tracking-[0.08em] uppercase block">
               [INITIATE METHODOLOGY ENGAGEMENT]
             </span>
 
-            <h2 className="text-3xl sm:text-5xl font-display font-bold text-navy leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#14233F] leading-tight">
               Ready to move from site data <br />
               to engineering decisions?
             </h2>
 
-            <p className="text-base sm:text-lg text-text-secondary font-light leading-relaxed pt-2">
+            <p className="text-base sm:text-[18px] text-[#425168] font-normal leading-relaxed pt-1">
               Discuss your project scope, site environment, and precision requirements with our senior spatial engineering directors. We provide formal feasibility reviews, methodology recommendations, and proposals within 24 business hours.
             </p>
           </div>
@@ -584,18 +577,18 @@ export const WorkflowPage: React.FC = () => {
           <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 font-mono text-xs uppercase tracking-wider">
             <Link
               to="/contact"
-              className="px-8 py-4 bg-navy hover:bg-navy-deep text-white border border-navy hover:border-gold transition-all font-semibold rounded-sm shadow-md flex items-center justify-center gap-2"
+              className="px-8 py-4 bg-[#14233F] hover:bg-[#0E1930] text-white border border-[#14233F] hover:border-[#B69A5A] transition-all font-semibold rounded-sm shadow-md flex items-center justify-center gap-2"
             >
               <span>Discuss Your Project</span>
-              <ArrowUpRight className="w-4 h-4 text-gold" />
+              <ArrowUpRight className="w-4 h-4 text-[#B69A5A]" />
             </Link>
 
             <Link
               to="/projects"
-              className="px-8 py-4 bg-white text-navy hover:bg-subtle-bg border border-subtle-border hover:border-gold transition-all rounded-sm flex items-center justify-center gap-2 font-medium"
+              className="px-8 py-4 bg-[#FFFFFF] text-[#14233F] hover:bg-[#F0F2F5] border border-[#DCE1E7] hover:border-[#B69A5A] transition-all rounded-sm flex items-center justify-center gap-2 font-semibold shadow-xs"
             >
               <span>Explore Verified Case Studies</span>
-              <ArrowRight className="w-4 h-4 text-gold" />
+              <ArrowRight className="w-4 h-4 text-[#B69A5A]" />
             </Link>
           </div>
 
