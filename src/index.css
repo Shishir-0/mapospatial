@@ -16,6 +16,18 @@
   --color-muted-text: #6B7788;
   --color-divider: #DCE1E7;
   --color-gold: #B69A5A;
+
+  /* MOTION DESIGN SYSTEM TOKENS */
+  --motion-micro: 200ms;
+  --motion-btn: 240ms;
+  --motion-content: 500ms;
+  --motion-section: 700ms;
+  --motion-large: 900ms;
+  --motion-counter: 1800ms;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @layer base {
@@ -23,6 +35,8 @@
     background-color: #FFFFFF;
     color: #425168;
     color-scheme: light;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
@@ -32,10 +46,27 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    max-width: 100vw;
     line-height: 1.6;
   }
 
-  h1, h2, h3, h4, h5, h6, .font-display {
+  #root {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  #root {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-display {
     font-family: 'Space Grotesk', sans-serif;
     color: #14233F;
     letter-spacing: -0.02em;
@@ -46,12 +77,14 @@
     color: #425168;
   }
 
-  code, pre, .font-mono {
+  code,
+  pre,
+  .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
 
-  /* Prevent any accidental opacity fading on content */
-  article, section, main, div {
+  /* Prevent any accidental opacity fading or hidden text trap */
+  article, section, main, div, p, span, h1, h2, h3, h4, h5, h6 {
     opacity: 1;
   }
 }
@@ -59,7 +92,7 @@
 /* Subtle architectural grid pattern on light background */
 .bg-tech-grid {
   background-size: 48px 48px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(220, 225, 231, 0.7) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(220, 225, 231, 0.7) 1px, transparent 1px);
 }
@@ -67,7 +100,7 @@
 /* Subtle architectural grid pattern on dark navy stage */
 .bg-tech-grid-dark {
   background-size: 48px 48px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(41, 57, 85, 0.4) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(41, 57, 85, 0.4) 1px, transparent 1px);
 }
@@ -104,13 +137,166 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #F7F8FA;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #CAD1D4;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #B69A5A;
+}
+/* ============================================================
+   MOTION DESIGN SYSTEM — REUSABLE KEYFRAMES & UTILITIES
+   ============================================================ */
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes beamScan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp var(--motion-content) var(--ease-expo) forwards;
+}
+
+.animate-fade-down {
+  animation: fadeDown var(--motion-content) var(--ease-expo) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--motion-content) var(--ease-smooth) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--motion-content) var(--ease-expo) forwards;
+}
+
+.animate-subtle-pulse {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-250 {
+  animation-delay: 250ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Micro-interaction & CTA button standard */
+.btn-interactive {
+  transition: all var(--motion-btn) var(--ease-expo);
+}
+
+.btn-interactive:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(20, 35, 63, 0.12);
+}
+
+.btn-interactive:active {
+  transform: translateY(0);
+}
+
+/* Keyboard focus accessible standard */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #B69A5A;
+  outline-offset: 2px;
+}
+
+/* ACCESSIBILITY: PREFERS-REDUCED-MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

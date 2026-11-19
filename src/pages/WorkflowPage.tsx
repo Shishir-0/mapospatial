@@ -300,7 +300,7 @@ export const WorkflowPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-[#FFFFFF] text-[#425168]">
+    <div className="pt-28 pb-24 px-4 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-[#FFFFFF] text-[#425168]">
       
       {/* Breadcrumb Navigation */}
       <Breadcrumbs items={[{ label: 'Engineering Methodology & Workflow' }]} />
@@ -351,7 +351,7 @@ export const WorkflowPage: React.FC = () => {
       </div>
 
       {/* QUICK STEP JUMP BAR (Sticky Navigation with Zero Faded Inactive States) */}
-      <div className="py-4 border-b border-[#DCE1E7] sticky top-[68px] bg-[#FFFFFF]/95 backdrop-blur-md z-30 overflow-x-auto">
+      <div className="py-4 border-b border-[#DCE1E7] sticky top-[60px] sm:top-[68px] bg-[#FFFFFF]/95 backdrop-blur-md z-30 overflow-x-auto">
         <div className="flex items-center space-x-2 sm:space-x-3 min-w-max font-mono text-xs">
           <span className="text-[#596579] text-[12px] uppercase mr-2 font-bold">STAGES:</span>
           {workflowSteps.map((st) => {
@@ -365,7 +365,7 @@ export const WorkflowPage: React.FC = () => {
                   const el = document.getElementById(st.id);
                   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className={`px-3.5 py-2 transition-all border rounded-sm flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 transition-all duration-200 border rounded-sm flex items-center gap-1.5 hover:-translate-y-0.5 active:translate-y-0 ${
                   isActive
                     ? 'bg-[#14233F] text-white border-[#14233F] font-bold shadow-xs'
                     : 'bg-[#F7F8FA] text-[#14233F] border-[#DCE1E7] hover:border-[#B69A5A] hover:bg-[#FFFFFF] font-semibold'
@@ -383,7 +383,7 @@ export const WorkflowPage: React.FC = () => {
       <div className="py-14 relative">
         
         {/* Continuous Connecting Technical Line */}
-        <div className="hidden lg:block absolute left-[31px] top-20 bottom-20 w-[2px] bg-[#DCE1E7]" />
+        <div className="hidden lg:block absolute left-[31px] top-20 bottom-20 w-[2px] bg-gradient-to-b from-[#14233F] via-[#B69A5A]/60 to-[#DCE1E7]" />
 
         <div className="space-y-20">
           {workflowSteps.map((step, idx) => (
@@ -394,12 +394,12 @@ export const WorkflowPage: React.FC = () => {
             >
               
               {/* Timeline Marker Pin */}
-              <div className="hidden lg:flex absolute left-0 top-0 w-16 h-16 rounded-full bg-[#FFFFFF] border-2 border-[#14233F] items-center justify-center font-mono font-bold text-[#14233F] shadow-sm z-10">
+              <div className="hidden lg:flex absolute left-0 top-0 w-16 h-16 rounded-full bg-[#FFFFFF] border-2 border-[#14233F] items-center justify-center font-mono font-bold text-[#14233F] shadow-sm z-10 transition-transform duration-300 hover:scale-105 hover:border-[#B69A5A]">
                 <span className="text-lg">{step.stepNumber}</span>
               </div>
 
               {/* Step Card Container (No low opacity anywhere) */}
-              <div className="p-6 sm:p-10 border border-[#DCE1E7] bg-[#FFFFFF] rounded-sm space-y-8 survey-corner shadow-sm">
+              <div className="p-6 sm:p-10 border border-[#DCE1E7] bg-[#FFFFFF] rounded-sm space-y-8 survey-corner shadow-xs hover:shadow-md transition-shadow duration-300">
                 
                 {/* Step Header */}
                 <div className="flex flex-col md:flex-row md:items-start justify-between pb-6 border-b border-[#DCE1E7] gap-4">
@@ -417,10 +417,10 @@ export const WorkflowPage: React.FC = () => {
 
                   <Link
                     to={step.connectedCapability.href}
-                    className="font-mono text-xs uppercase tracking-wider text-[#14233F] hover:text-[#B69A5A] flex items-center gap-1.5 transition-colors font-bold shrink-0 mt-2 bg-[#F7F8FA] px-4 py-2.5 rounded-sm border border-[#DCE1E7] hover:border-[#B69A5A]"
+                    className="font-mono text-xs uppercase tracking-wider text-[#14233F] hover:text-[#B69A5A] flex items-center gap-1.5 transition-all duration-200 font-bold shrink-0 mt-2 bg-[#F7F8FA] px-4 py-2.5 rounded-sm border border-[#DCE1E7] hover:border-[#B69A5A] hover:-translate-y-0.5 active:translate-y-0 group"
                   >
                     <span>{step.connectedCapability.name}</span>
-                    <ArrowUpRight className="w-4 h-4 text-[#B69A5A]" />
+                    <ArrowUpRight className="w-4 h-4 text-[#B69A5A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                   </Link>
                 </div>
 

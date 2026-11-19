@@ -6,7 +6,7 @@ export const industriesData: IndustryItem[] = [
     slug: 'architecture-engineering-construction',
     name: 'Architecture, Engineering & Construction',
     iconName: 'Building2',
-    imageAsset: '/assets/Building-3.jpg',
+    imageAsset: '/assets/Architecture, Engineering & Construction.jpg',
     shortDesc: 'Precision Scan-to-BIM, clash detection, and as-built validation across complex building projects.',
     fullDesc: 'We empower architects, structural engineers, and general contractors with high-precision digital baselines. By converting laser scan point clouds into intelligent Revit models (LOD 100-500), we eliminate on-site rework, verify pre-pour concrete geometry, and de-risk complex adaptive reuse projects.',
     challenges: [
@@ -31,7 +31,7 @@ export const industriesData: IndustryItem[] = [
     slug: 'infrastructure-civil',
     name: 'Infrastructure & Civil Works',
     iconName: 'Landmark',
-    imageAsset: '/assets/Photogrammetry-Terrain-Based-3D-Model-1.png',
+    imageAsset: '/assets/Infrastructure & Civil Works.png',
     shortDesc: 'Comprehensive geospatial surveys, terrain elevation modeling, and asset lifecycle intelligence.',
     fullDesc: 'Large-scale civil infrastructure demands rigorous geodetic control and uncompromising spatial precision. Mapo Spatial provides end-to-end geospatial surveys, DTM/DSM elevation modeling, and asset digitization for dams, bridges, ports, and regional civil undertakings.',
     challenges: [

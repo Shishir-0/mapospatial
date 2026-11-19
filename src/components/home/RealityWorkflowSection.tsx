@@ -119,8 +119,8 @@ export const RealityWorkflowSection: React.FC = () => {
           })}
         </div>
 
-        {/* Transformation Showcase Panel */}
-        <div className="p-6 sm:p-10 border border-[#DCE1E7] bg-white rounded-sm space-y-8 shadow-sm">
+        {/* Transformation Showcase Panel with smooth transition on phase change */}
+        <div key={current.num} className="p-6 sm:p-10 border border-[#DCE1E7] bg-white rounded-sm space-y-8 shadow-sm animate-fade-in">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
@@ -130,7 +130,7 @@ export const RealityWorkflowSection: React.FC = () => {
                 <img 
                   src={current.image} 
                   alt={current.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 
                 {/* Overlay Header */}
@@ -198,18 +198,18 @@ export const RealityWorkflowSection: React.FC = () => {
               <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <Link
                   to="/workflow"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#14233F] hover:bg-[#0E1930] text-white font-mono text-xs font-bold uppercase tracking-wider rounded-sm transition-all shadow-md"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#14233F] hover:bg-[#0E1930] text-white font-mono text-xs font-bold uppercase tracking-wider rounded-sm transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 group"
                 >
                   <span>Explore Full 6-Stage Methodology</span>
-                  <ArrowRight className="w-4 h-4 text-[#B69A5A]" />
+                  <ArrowRight className="w-4 h-4 text-[#B69A5A] group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
 
                 <Link
                   to="/scan-to-bim"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-[#F7F8FA] text-[#14233F] font-mono text-xs font-semibold uppercase tracking-wider rounded-sm transition-all border border-[#DCE1E7]"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-[#F7F8FA] text-[#14233F] font-mono text-xs font-semibold uppercase tracking-wider rounded-sm transition-all duration-200 border border-[#DCE1E7] hover:border-[#B69A5A] hover:-translate-y-0.5 active:translate-y-0 group"
                 >
                   <span>Scan to BIM Specs</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#B69A5A]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#B69A5A] group-hover:translate-x-1 transition-transform duration-200" />
                 </Link>
               </div>
 
