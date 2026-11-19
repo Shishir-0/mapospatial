@@ -18,7 +18,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
         <li className="flex items-center">
           <Link 
             to="/" 
-            className="hover:text-mineral transition-colors"
+            className="hover:text-navy transition-colors font-medium"
           >
             INDEX
           </Link>
@@ -28,16 +28,16 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
           const isLast = idx === items.length - 1;
           return (
             <li key={idx} className="flex items-center space-x-2">
-              <ChevronRight className="w-3 h-3 text-subtle-border" />
+              <ChevronRight className="w-3 h-3 text-text-muted" />
               {crumb.href && !isLast ? (
                 <Link 
                   to={crumb.href} 
-                  className="hover:text-mineral transition-colors uppercase"
+                  className="hover:text-navy transition-colors uppercase font-medium"
                 >
                   {crumb.label}
                 </Link>
               ) : (
-                <span className="text-copper uppercase font-medium" aria-current="page">
+                <span className="text-gold uppercase font-bold" aria-current="page">
                   {crumb.label}
                 </span>
               )}

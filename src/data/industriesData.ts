@@ -6,12 +6,13 @@ export const industriesData: IndustryItem[] = [
     slug: 'architecture-engineering-construction',
     name: 'Architecture, Engineering & Construction',
     iconName: 'Building2',
+    imageAsset: '/assets/Building-3.jpg',
     shortDesc: 'Precision Scan-to-BIM, clash detection, and as-built validation across complex building projects.',
-    fullDesc: 'We empower architects, structural engineers, and general contractors with high-precision digital baselines. By converting laser scan data into intelligent Revit models (LOD 100-500), we eliminate on-site rework, verify pre-pour concrete geometry, and de-risk complex adaptive reuse projects.',
+    fullDesc: 'We empower architects, structural engineers, and general contractors with high-precision digital baselines. By converting laser scan point clouds into intelligent Revit models (LOD 100-500), we eliminate on-site rework, verify pre-pour concrete geometry, and de-risk complex adaptive reuse projects.',
     challenges: [
       'Unreliable or missing historical archive drawings for retrofits',
       'On-site design clashes discovered during active construction phase',
-      'Costly contractor delays caused by inaccurate measurements'
+      'Costly contractor delays caused by inaccurate manual measurements'
     ],
     solutions: [
       'Sub-millimeter 3D laser scan documentation of existing structures',
@@ -30,6 +31,7 @@ export const industriesData: IndustryItem[] = [
     slug: 'infrastructure-civil',
     name: 'Infrastructure & Civil Works',
     iconName: 'Landmark',
+    imageAsset: '/assets/Photogrammetry-Terrain-Based-3D-Model-1.png',
     shortDesc: 'Comprehensive geospatial surveys, terrain elevation modeling, and asset lifecycle intelligence.',
     fullDesc: 'Large-scale civil infrastructure demands rigorous geodetic control and uncompromising spatial precision. Mapo Spatial provides end-to-end geospatial surveys, DTM/DSM elevation modeling, and asset digitization for dams, bridges, ports, and regional civil undertakings.',
     challenges: [
@@ -54,6 +56,7 @@ export const industriesData: IndustryItem[] = [
     slug: 'transportation-rail-aviation',
     name: 'Transportation, Rail & Aviation',
     iconName: 'TrainTrack',
+    imageAsset: '/assets/Mobile-mapping4.png',
     shortDesc: 'Mobile LiDAR corridor mapping, track centerline extraction, and airport obstacle analysis.',
     fullDesc: 'We deliver mission-critical spatial data to railway network operators, highway authorities, and international airports. Using mobile mapping systems and aerial LiDAR, we capture linear corridors at speed without disrupting active passenger operations.',
     challenges: [
@@ -78,6 +81,7 @@ export const industriesData: IndustryItem[] = [
     slug: 'power-energy-utilities',
     name: 'Power, Energy & Utilities',
     iconName: 'Zap',
+    imageAsset: '/assets/Power-line1.png',
     shortDesc: 'Transmission line corridor analytics, vegetation management, and underground utility engineering.',
     fullDesc: 'Protecting energy transmission grids and underground utility networks requires high-resolution spatial visibility. We provide powerline catenary sag calculations, vegetation encroachment danger indexing, and ASCE 38-02 compliant underground utility base mapping.',
     challenges: [
@@ -102,6 +106,7 @@ export const industriesData: IndustryItem[] = [
     slug: 'process-plant-engineering',
     name: 'Process Plant Engineering',
     iconName: 'Factory',
+    imageAsset: '/assets/Plant.png',
     shortDesc: 'High-density laser scanning, pipe spool modeling, and intelligent plant digital twins.',
     fullDesc: 'In complex chemical refineries, pharmaceutical sites, and power plants, spatial accuracy is a safety mandate. We capture labyrinthine pipe racks, vessels, and structural steel, converting laser scan point clouds into intelligent 3D plant models with complete piping metadata.',
     challenges: [
@@ -126,6 +131,7 @@ export const industriesData: IndustryItem[] = [
     slug: 'heritage-mining-public',
     name: 'Heritage, Mining & Public Sector',
     iconName: 'Compass',
+    imageAsset: '/assets/Mining.png',
     shortDesc: 'Digital archiving of historic monuments, open-pit quarry volume calculations, and municipal GIS.',
     fullDesc: 'From preserving irreplaceable historical monuments through millimetric 3D digital records to computing monthly cut/fill volumes in open-pit mines and building cadastral databases for municipal revenue authorities, we support diverse specialized sectors.',
     challenges: [

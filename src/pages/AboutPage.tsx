@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumbs } from '../components/shared/Breadcrumbs';
-import { ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
   useEffect(() => {
@@ -29,7 +29,7 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative">
+    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-white">
       
       {/* Breadcrumb */}
       <Breadcrumbs items={[{ label: 'About Mapo Spatial' }]} />
@@ -38,13 +38,12 @@ export const AboutPage: React.FC = () => {
       <div className="py-12 border-b border-subtle-border">
         <div className="max-w-3xl space-y-4">
           
-          <span className="text-[11px] font-mono text-copper tracking-widest uppercase block">
-            [COMPANY & MISSION]
+          <span className="text-xs font-mono text-gold font-bold tracking-widest uppercase block">
+            [COMPANY MISSION & ENGINEERING ETHOS]
           </span>
 
-          <h1 className="text-4xl sm:text-6xl font-display font-bold text-mineral leading-[1.08] tracking-tight">
-            Charting Smarter <br />
-            Decisions.
+          <h1 className="text-4xl sm:text-6xl font-display font-bold text-navy leading-[1.08] tracking-tight">
+            Charting Smarter Decisions.
           </h1>
 
           <p className="text-base sm:text-lg text-text-secondary font-light leading-relaxed pt-2">
@@ -58,10 +57,10 @@ export const AboutPage: React.FC = () => {
       <div className="py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start border-b border-subtle-border">
         
         <div className="lg:col-span-6 space-y-6">
-          <span className="text-xs font-mono text-copper uppercase tracking-wider block">
+          <span className="text-xs font-mono text-gold font-bold uppercase tracking-wider block">
             The Engineering Mandate
           </span>
-          <h2 className="text-2xl sm:text-4xl font-display font-bold text-mineral leading-tight">
+          <h2 className="text-2xl sm:text-4xl font-display font-bold text-navy leading-tight">
             Bridging Physical Reality and Digital Execution
           </h2>
           <div className="space-y-4 text-sm text-text-secondary font-light leading-relaxed">
@@ -78,17 +77,17 @@ export const AboutPage: React.FC = () => {
         </div>
 
         <div className="lg:col-span-6 space-y-4">
-          <div className="p-8 border border-subtle-border bg-carbon/90 backdrop-blur-md space-y-6 survey-corner">
-            <h3 className="text-base font-display font-bold text-mineral pb-3 border-b border-subtle-border">
+          <div className="p-8 border border-subtle-border bg-warm-white rounded-sm space-y-6 survey-corner shadow-md">
+            <h3 className="text-base font-display font-bold text-navy pb-3 border-b border-subtle-border">
               Core Engineering Commitments
             </h3>
             <div className="space-y-5">
               {corePillars.map((pillar, idx) => (
                 <div key={idx} className="space-y-1 font-mono text-xs">
-                  <div className="text-copper font-semibold">
+                  <div className="text-gold font-bold">
                     0{idx + 1}. {pillar.title}
                   </div>
-                  <p className="text-text-muted font-sans text-xs font-light leading-relaxed">
+                  <p className="text-text-secondary font-sans text-xs font-light leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
@@ -102,41 +101,41 @@ export const AboutPage: React.FC = () => {
       {/* Verified Technical Standards */}
       <div className="py-16 border-b border-subtle-border">
         <div className="max-w-2xl mb-12 space-y-2">
-          <span className="text-xs font-mono text-copper uppercase tracking-wider block">
+          <span className="text-xs font-mono text-gold font-bold uppercase tracking-wider block">
             Quality Assurance & Framework
           </span>
-          <h2 className="text-2xl sm:text-3xl font-display font-bold text-mineral">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-navy">
             Rigorous Verification Protocol
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 border border-subtle-border bg-carbon/70 space-y-3 survey-corner">
-            <span className="text-xs font-mono text-copper">01 / TOLERANCE VERIFICATION</span>
-            <h3 className="text-base font-display font-semibold text-mineral">
+          <div className="p-6 border border-subtle-border bg-warm-white rounded-sm space-y-3 survey-corner hover:border-gold/60 transition-all">
+            <span className="text-xs font-mono font-bold text-gold">01 / TOLERANCE VERIFICATION</span>
+            <h3 className="text-base font-display font-bold text-navy">
               ±3mm Point Deviation
             </h3>
-            <p className="text-xs text-text-muted font-light leading-relaxed">
+            <p className="text-xs text-text-secondary font-light leading-relaxed">
               Algorithmic point-to-plane registration and colorized deviation heatmaps verifying that 3D modeled elements conform within ±3mm of verified laser scan returns.
             </p>
           </div>
 
-          <div className="p-6 border border-subtle-border bg-carbon/70 space-y-3 survey-corner">
-            <span className="text-xs font-mono text-copper">02 / DATA GOVERNANCE</span>
-            <h3 className="text-base font-display font-semibold text-mineral">
+          <div className="p-6 border border-subtle-border bg-warm-white rounded-sm space-y-3 survey-corner hover:border-gold/60 transition-all">
+            <span className="text-xs font-mono font-bold text-gold">02 / DATA GOVERNANCE</span>
+            <h3 className="text-base font-display font-bold text-navy">
               Strict Bilateral NDAs
             </h3>
-            <p className="text-xs text-text-muted font-light leading-relaxed">
+            <p className="text-xs text-text-secondary font-light leading-relaxed">
               Enterprise data governance with encrypted transfer protocols, air-gapped processing nodes where mandated, and comprehensive client confidentiality agreements.
             </p>
           </div>
 
-          <div className="p-6 border border-subtle-border bg-carbon/70 space-y-3 survey-corner">
-            <span className="text-xs font-mono text-copper">03 / OPEN INTEROPERABILITY</span>
-            <h3 className="text-base font-display font-semibold text-mineral">
+          <div className="p-6 border border-subtle-border bg-warm-white rounded-sm space-y-3 survey-corner hover:border-gold/60 transition-all">
+            <span className="text-xs font-mono font-bold text-gold">03 / OPEN INTEROPERABILITY</span>
+            <h3 className="text-base font-display font-bold text-navy">
               International Standards
             </h3>
-            <p className="text-xs text-text-muted font-light leading-relaxed">
+            <p className="text-xs text-text-secondary font-light leading-relaxed">
               Strict alignment with ASPRS LAS 1.4, buildingSMART IFC 4, ASCE 38-02 SUE, and ICAO Annex 14 aeronautical obstacle criteria.
             </p>
           </div>
@@ -145,35 +144,35 @@ export const AboutPage: React.FC = () => {
 
       {/* Global Communications */}
       <div className="py-16">
-        <div className="p-8 sm:p-12 border border-subtle-border bg-carbon/90 backdrop-blur-md grid grid-cols-1 md:grid-cols-2 gap-8 items-center survey-corner">
+        <div className="p-8 sm:p-12 border border-subtle-border bg-warm-white rounded-sm grid grid-cols-1 md:grid-cols-2 gap-8 items-center survey-corner shadow-lg">
           
           <div className="space-y-4">
-            <span className="text-xs font-mono text-copper uppercase tracking-wider block">
+            <span className="text-xs font-mono text-gold font-bold uppercase tracking-wider block">
               Headquarters & Global Hubs
             </span>
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-mineral">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-navy">
               Connect with our Leadership Team
             </h2>
             <p className="text-xs sm:text-sm text-text-secondary font-light leading-relaxed">
               Reach out to discuss partnership opportunities, ongoing master service agreements (MSA), or pilot evaluation projects.
             </p>
 
-            <div className="pt-2 space-y-2 text-xs font-mono text-mineral">
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-copper" />
-                <a href="mailto:enquiry@mapospatial.com" className="hover:text-copper transition-colors">
+            <div className="pt-2 space-y-2.5 text-xs font-mono text-navy">
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-gold shrink-0" />
+                <a href="mailto:enquiry@mapospatial.com" className="hover:text-gold transition-colors font-medium">
                   enquiry@mapospatial.com
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-copper" />
-                <a href="tel:+441296924032" className="hover:text-copper transition-colors">
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-gold shrink-0" />
+                <a href="tel:+441296924032" className="hover:text-gold transition-colors font-medium">
                   +44 1296924032 (UK Direct)
                 </a>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-copper" />
-                <span>Bengaluru - 560064, India</span>
+              <div className="flex items-center gap-2.5">
+                <MapPin className="w-4 h-4 text-gold shrink-0" />
+                <span className="font-medium">Bengaluru - 560064, India</span>
               </div>
             </div>
           </div>
@@ -181,10 +180,10 @@ export const AboutPage: React.FC = () => {
           <div className="flex justify-start md:justify-end">
             <Link
               to="/contact"
-              className="px-6 py-3.5 text-xs font-mono font-semibold uppercase tracking-wider text-mineral bg-graphite hover:bg-carbon border border-subtle-border hover:border-copper transition-all flex items-center gap-2"
+              className="px-6 py-3.5 text-xs font-mono font-bold uppercase tracking-wider text-white bg-navy hover:bg-navy-deep border border-navy hover:border-gold rounded-sm transition-all shadow-md flex items-center gap-2"
             >
               <span>Initiate Project Consultation</span>
-              <ArrowUpRight className="w-4 h-4 text-copper" />
+              <ArrowUpRight className="w-4 h-4 text-gold" />
             </Link>
           </div>
 

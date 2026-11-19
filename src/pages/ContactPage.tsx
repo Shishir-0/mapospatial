@@ -48,7 +48,7 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative">
+    <div className="pt-28 pb-24 px-6 sm:px-8 max-w-7xl mx-auto w-full z-10 relative bg-white">
       
       {/* Breadcrumb */}
       <Breadcrumbs items={[{ label: 'Contact & Inquiries' }]} />
@@ -57,11 +57,11 @@ export const ContactPage: React.FC = () => {
       <div className="py-12 border-b border-subtle-border">
         <div className="max-w-3xl space-y-4">
           
-          <span className="text-[11px] font-mono text-copper tracking-widest uppercase block">
+          <span className="text-xs font-mono text-gold font-bold tracking-widest uppercase block">
             [TECHNICAL CONSULTATION & RFPS]
           </span>
 
-          <h1 className="text-4xl sm:text-6xl font-display font-bold text-mineral leading-[1.08] tracking-tight">
+          <h1 className="text-4xl sm:text-6xl font-display font-bold text-navy leading-[1.08] tracking-tight">
             Discuss Your Project
           </h1>
 
@@ -78,20 +78,20 @@ export const ContactPage: React.FC = () => {
         {/* Left Column: Direct Info */}
         <div className="lg:col-span-5 space-y-6">
           
-          <div className="p-8 border border-subtle-border bg-carbon/90 backdrop-blur-md space-y-6 survey-corner">
-            <h2 className="text-base font-display font-bold text-mineral pb-3 border-b border-subtle-border">
+          <div className="p-8 border border-subtle-border bg-warm-white rounded-sm space-y-6 survey-corner shadow-md">
+            <h2 className="text-base font-display font-bold text-navy pb-3 border-b border-subtle-border">
               Direct Communications
             </h2>
 
             <div className="space-y-5 text-xs font-mono">
               
               <div className="space-y-1">
-                <span className="text-text-muted text-[10px] uppercase block">
+                <span className="text-text-muted text-[10px] uppercase font-bold block">
                   TECHNICAL ENQUIRIES
                 </span>
                 <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-copper" />
-                  <a href="mailto:enquiry@mapospatial.com" className="text-mineral hover:text-copper transition-colors">
+                  <Mail className="w-4 h-4 text-gold shrink-0" />
+                  <a href="mailto:enquiry@mapospatial.com" className="text-navy font-semibold hover:text-gold transition-colors">
                     enquiry@mapospatial.com
                   </a>
                 </div>
@@ -101,13 +101,13 @@ export const ContactPage: React.FC = () => {
               </div>
 
               <div className="space-y-1">
-                <span className="text-text-muted text-[10px] uppercase block">
+                <span className="text-text-muted text-[10px] uppercase font-bold block">
                   INTERNATIONAL TELEPHONE
                 </span>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-copper" />
-                  <a href="tel:+441296924032" className="text-mineral hover:text-copper transition-colors">
-                    +44 1296924032
+                  <Phone className="w-4 h-4 text-gold shrink-0" />
+                  <a href="tel:+441296924032" className="text-navy font-semibold hover:text-gold transition-colors">
+                    +44 1296924032 (UK)
                   </a>
                 </div>
                 <span className="text-[10px] text-text-muted block">
@@ -116,12 +116,12 @@ export const ContactPage: React.FC = () => {
               </div>
 
               <div className="space-y-1">
-                <span className="text-text-muted text-[10px] uppercase block">
+                <span className="text-text-muted text-[10px] uppercase font-bold block">
                   ENGINEERING DELIVERY CENTER
                 </span>
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-copper" />
-                  <span className="text-mineral">Bengaluru - 560064, India</span>
+                  <MapPin className="w-4 h-4 text-gold shrink-0" />
+                  <span className="text-navy font-semibold">Bengaluru - 560064, India</span>
                 </div>
                 <span className="text-[10px] text-text-muted block">
                   Serving UK, Europe, Americas & APAC
@@ -130,16 +130,16 @@ export const ContactPage: React.FC = () => {
 
             </div>
 
-            <div className="pt-4 border-t border-subtle-border text-[11px] font-mono text-copper">
+            <div className="pt-4 border-t border-subtle-border text-[11px] font-mono text-gold font-bold">
               RESPONSE GUARANTEE: WITHIN 24 BUSINESS HOURS
             </div>
           </div>
 
-          <div className="p-6 border border-subtle-border/60 bg-carbon/50 space-y-2">
-            <span className="text-xs font-mono text-copper uppercase block">
+          <div className="p-6 border border-subtle-border bg-warm-white rounded-sm space-y-2">
+            <span className="text-xs font-mono text-navy font-bold uppercase block">
               Confidentiality & Bilateral NDAs
             </span>
-            <p className="text-xs text-text-muted font-light leading-relaxed">
+            <p className="text-xs text-text-secondary font-light leading-relaxed">
               We routinely handle sensitive infrastructure, rail, and industrial plant datasets. Formal bilateral Non-Disclosure Agreements are executed prior to sample data ingestion.
             </p>
           </div>
@@ -148,24 +148,24 @@ export const ContactPage: React.FC = () => {
 
         {/* Right Column: Premium Engineering Inquiry Form */}
         <div className="lg:col-span-7">
-          <div className="p-8 sm:p-10 border border-subtle-border bg-carbon/95 backdrop-blur-md space-y-6 survey-corner">
+          <div className="p-8 sm:p-10 border border-subtle-border bg-white rounded-sm space-y-6 survey-corner shadow-lg">
             
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-5">
                 
                 <div className="pb-4 border-b border-subtle-border">
-                  <h2 className="text-lg font-display font-bold text-mineral">
+                  <h2 className="text-lg font-display font-bold text-navy">
                     Project Feasibility & Consultation Form
                   </h2>
                   <p className="text-[11px] text-text-muted font-mono mt-1">
-                    Fields marked with * are required for engineering review.
+                    Fields marked with * are required for engineering evaluation.
                   </p>
                 </div>
 
                 {/* Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-[11px] font-mono text-copper uppercase mb-1">
+                    <label className="block text-[11px] font-mono text-navy font-bold uppercase mb-1">
                       Full Name *
                     </label>
                     <input
@@ -173,12 +173,12 @@ export const ContactPage: React.FC = () => {
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       placeholder="e.g. David Morrison"
-                      className={`w-full bg-basalt border p-3 text-xs text-mineral font-mono focus:outline-none transition-colors ${
-                        errors.fullName ? 'border-rose-500' : 'border-subtle-border focus:border-copper'
+                      className={`w-full bg-warm-white border p-3 text-xs text-navy font-mono focus:outline-none transition-colors rounded-sm ${
+                        errors.fullName ? 'border-rose-500' : 'border-subtle-border focus:border-gold'
                       }`}
                     />
                     {errors.fullName && (
-                      <p className="text-[10px] text-rose-400 mt-1 font-mono flex items-center gap-1">
+                      <p className="text-[10px] text-rose-500 mt-1 font-mono flex items-center gap-1">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.fullName}</span>
                       </p>
@@ -186,7 +186,7 @@ export const ContactPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-mono text-copper uppercase mb-1">
+                    <label className="block text-[11px] font-mono text-navy font-bold uppercase mb-1">
                       Work Email *
                     </label>
                     <input
@@ -194,12 +194,12 @@ export const ContactPage: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="david.m@engineering.com"
-                      className={`w-full bg-basalt border p-3 text-xs text-mineral font-mono focus:outline-none transition-colors ${
-                        errors.email ? 'border-rose-500' : 'border-subtle-border focus:border-copper'
+                      className={`w-full bg-warm-white border p-3 text-xs text-navy font-mono focus:outline-none transition-colors rounded-sm ${
+                        errors.email ? 'border-rose-500' : 'border-subtle-border focus:border-gold'
                       }`}
                     />
                     {errors.email && (
-                      <p className="text-[10px] text-rose-400 mt-1 font-mono flex items-center gap-1">
+                      <p className="text-[10px] text-rose-500 mt-1 font-mono flex items-center gap-1">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.email}</span>
                       </p>
@@ -210,20 +210,20 @@ export const ContactPage: React.FC = () => {
                 {/* Company & Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-[11px] font-mono text-text-muted uppercase mb-1">
+                    <label className="block text-[11px] font-mono text-text-muted uppercase mb-1 font-medium">
                       Company / Organization
                     </label>
                     <input
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="e.g. Foster & Partners / Network Rail"
-                      className="w-full bg-basalt border border-subtle-border p-3 text-xs text-mineral font-mono focus:border-copper focus:outline-none"
+                      placeholder="e.g. Infrastructure Partner Ltd"
+                      className="w-full bg-warm-white border border-subtle-border p-3 text-xs text-navy font-mono focus:border-gold focus:outline-none rounded-sm"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-mono text-text-muted uppercase mb-1">
+                    <label className="block text-[11px] font-mono text-text-muted uppercase mb-1 font-medium">
                       Direct Telephone (Optional)
                     </label>
                     <input
@@ -231,7 +231,7 @@ export const ContactPage: React.FC = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+44 7911 123456"
-                      className="w-full bg-basalt border border-subtle-border p-3 text-xs text-mineral font-mono focus:border-copper focus:outline-none"
+                      className="w-full bg-warm-white border border-subtle-border p-3 text-xs text-navy font-mono focus:border-gold focus:outline-none rounded-sm"
                     />
                   </div>
                 </div>
@@ -239,13 +239,13 @@ export const ContactPage: React.FC = () => {
                 {/* Service Interest & Industry */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-[11px] font-mono text-copper uppercase mb-1">
+                    <label className="block text-[11px] font-mono text-navy font-bold uppercase mb-1">
                       Core Discipline
                     </label>
                     <select
                       value={formData.serviceInterest}
                       onChange={(e) => setFormData({ ...formData, serviceInterest: e.target.value })}
-                      className="w-full bg-basalt border border-subtle-border p-3 text-xs text-mineral font-mono focus:border-copper focus:outline-none"
+                      className="w-full bg-warm-white border border-subtle-border p-3 text-xs text-navy font-mono focus:border-gold focus:outline-none rounded-sm"
                     >
                       <option value="Scan to BIM">Scan to BIM (Revit LOD 100-500)</option>
                       <option value="Reality Capture & Laser Scanning">Reality Capture & Laser Scanning</option>
@@ -258,13 +258,13 @@ export const ContactPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-mono text-copper uppercase mb-1">
+                    <label className="block text-[11px] font-mono text-navy font-bold uppercase mb-1">
                       Sector / Industry
                     </label>
                     <select
                       value={formData.industry}
                       onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                      className="w-full bg-basalt border border-subtle-border p-3 text-xs text-mineral font-mono focus:border-copper focus:outline-none"
+                      className="w-full bg-warm-white border border-subtle-border p-3 text-xs text-navy font-mono focus:border-gold focus:outline-none rounded-sm"
                     >
                       <option value="Architecture & Construction">Architecture & Construction</option>
                       <option value="Infrastructure & Civil Works">Infrastructure & Civil Works</option>
@@ -278,7 +278,7 @@ export const ContactPage: React.FC = () => {
 
                 {/* Project Scope Description */}
                 <div>
-                  <label className="block text-[11px] font-mono text-copper uppercase mb-1">
+                  <label className="block text-[11px] font-mono text-navy font-bold uppercase mb-1">
                     Project Scope & Engineering Requirements *
                   </label>
                   <textarea
@@ -286,12 +286,12 @@ export const ContactPage: React.FC = () => {
                     value={formData.projectScope}
                     onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
                     placeholder="Detail the asset, required LOD (e.g. LOD 350 MEP), estimated size or corridor length, target delivery timeline, and input scan formats (E57, LAS, RCP)..."
-                    className={`w-full bg-basalt border p-3 text-xs text-mineral font-mono focus:outline-none transition-colors ${
-                      errors.projectScope ? 'border-rose-500' : 'border-subtle-border focus:border-copper'
+                    className={`w-full bg-warm-white border p-3 text-xs text-navy font-mono focus:outline-none transition-colors rounded-sm ${
+                      errors.projectScope ? 'border-rose-500' : 'border-subtle-border focus:border-gold'
                     }`}
                   />
                   {errors.projectScope && (
-                    <p className="text-[10px] text-rose-400 mt-1 font-mono flex items-center gap-1">
+                    <p className="text-[10px] text-rose-500 mt-1 font-mono flex items-center gap-1">
                       <AlertCircle className="w-3 h-3" />
                       <span>{errors.projectScope}</span>
                     </p>
@@ -305,7 +305,7 @@ export const ContactPage: React.FC = () => {
                     id="nda"
                     checked={formData.needsNDA}
                     onChange={(e) => setFormData({ ...formData, needsNDA: e.target.checked })}
-                    className="w-4 h-4 rounded-none bg-basalt border-subtle-border text-copper focus:ring-copper"
+                    className="w-4 h-4 rounded-none bg-warm-white border-subtle-border text-gold focus:ring-gold"
                   />
                   <label htmlFor="nda" className="text-xs text-text-secondary cursor-pointer font-light">
                     Supply a mutual Non-Disclosure Agreement (NDA) prior to technical review.
@@ -321,13 +321,13 @@ export const ContactPage: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-7 py-3.5 bg-mineral text-basalt hover:bg-white transition-all font-semibold flex items-center gap-2 disabled:opacity-50"
+                    className="px-7 py-3.5 bg-navy hover:bg-navy-deep text-white border border-navy hover:border-gold transition-all font-semibold rounded-sm shadow-md flex items-center gap-2 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <span>Transmitting...</span>
                     ) : (
                       <>
-                        <Send className="w-3.5 h-3.5" />
+                        <Send className="w-3.5 h-3.5 text-gold" />
                         <span>Submit Inquiry</span>
                       </>
                     )}
@@ -337,29 +337,29 @@ export const ContactPage: React.FC = () => {
               </form>
             ) : (
               <div className="text-center py-12 space-y-5">
-                <div className="w-12 h-12 rounded-full border border-copper text-copper flex items-center justify-center mx-auto">
+                <div className="w-12 h-12 rounded-full border border-gold text-gold flex items-center justify-center mx-auto bg-warm-white">
                   <Check className="w-6 h-6" />
                 </div>
 
-                <h3 className="text-2xl font-display font-bold text-mineral">
+                <h3 className="text-2xl font-display font-bold text-navy">
                   Inquiry Successfully Logged
                 </h3>
 
                 <p className="text-sm text-text-secondary max-w-lg mx-auto font-light leading-relaxed">
-                  Thank you, <strong className="text-mineral">{formData.fullName}</strong>. Your project specifications for <strong className="text-copper">{formData.serviceInterest}</strong> have been routed to our senior engineering evaluation director.
+                  Thank you, <strong className="text-navy">{formData.fullName}</strong>. Your project specifications for <strong className="text-gold">{formData.serviceInterest}</strong> have been routed to our senior engineering evaluation director.
                 </p>
 
-                <div className="p-4 max-w-md mx-auto text-left font-mono text-xs text-text-secondary space-y-1.5 bg-basalt border border-subtle-border">
-                  <div>REFERENCE: <span className="text-copper font-bold">MAPO-2026-{Math.floor(1000 + Math.random() * 9000)}</span></div>
-                  <div>CONFIRMATION TO: <span className="text-mineral">{formData.email}</span></div>
-                  <div>RESPONSE WINDOW: <span className="text-mineral">&lt; 24 Business Hours</span></div>
+                <div className="p-4 max-w-md mx-auto text-left font-mono text-xs text-text-secondary space-y-1.5 bg-warm-white border border-subtle-border rounded-sm">
+                  <div>REFERENCE: <span className="text-gold font-bold">MAPO-2026-{Math.floor(1000 + Math.random() * 9000)}</span></div>
+                  <div>CONFIRMATION TO: <span className="text-navy font-semibold">{formData.email}</span></div>
+                  <div>RESPONSE WINDOW: <span className="text-navy font-semibold">&lt; 24 Business Hours</span></div>
                 </div>
 
                 <div className="pt-4">
                   <button
                     type="button"
                     onClick={() => setIsSubmitted(false)}
-                    className="text-xs font-mono uppercase text-copper hover:underline"
+                    className="text-xs font-mono uppercase text-gold font-bold hover:underline"
                   >
                     ← Submit another inquiry
                   </button>

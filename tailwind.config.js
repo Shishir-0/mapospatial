@@ -8,18 +8,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        basalt: '#090B0C',        // Deep Basalt (primary background)
-        carbon: '#111517',        // Carbon Surface
-        graphite: '#191E20',      // Elevated Graphite
-        mineral: '#F0EEE8',       // Mineral White (primary text)
-        'text-secondary': '#A4A49D', // Secondary text
-        'text-muted': '#747B79',     // Muted technical text
-        copper: {
-          DEFAULT: '#C27A50',     // Survey Copper (selective accent)
-          dim: '#8E5534',
-          glow: 'rgba(194, 122, 80, 0.15)',
+        // Light Editorial Palette (70% Light / 20% Dark Navy / 10% Gold Accent)
+        background: '#FFFFFF',
+        'warm-white': '#F7F8F6',
+        'subtle-section': '#F0F2F1',
+        navy: {
+          DEFAULT: '#14233F',     // Primary brand navy
+          deep: '#0E1930',        // Deep navy
+          dark: '#0A1222',
+          light: '#1D325A',
         },
-        'subtle-border': '#292F30', // Subtle architectural border
+        gold: {
+          DEFAULT: '#B69A5A',     // Refined gold from logo
+          light: '#C7AE75',
+          dark: '#9B8144',
+          subtle: 'rgba(182, 154, 90, 0.12)',
+        },
+        'text-primary': '#14233F',  // Primary navy text
+        'text-secondary': '#596575',// Secondary text
+        'text-muted': '#808A96',    // Muted technical text
+        'border-subtle': '#E3E7E8', // Subtle borders
+        'border-strong': '#CAD1D4',
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'sans-serif'],
@@ -29,9 +38,9 @@ export default {
       borderRadius: {
         none: '0',
         sm: '2px',
-        DEFAULT: '3px',
-        md: '4px',
-        lg: '6px',
+        DEFAULT: '4px',
+        md: '6px',
+        lg: '8px',
       }
     },
   },

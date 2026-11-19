@@ -5,13 +5,16 @@ export const projectsData: ProjectItem[] = [
     id: 'rail-corridor-lidar',
     slug: 'intercity-rail-corridor-mobile-lidar',
     title: 'Intercity Rail Corridor Mobile LiDAR & Clearance Engineering',
-    category: 'LiDAR & Transportation',
+    category: 'Mobile Mapping',
+    industry: 'Transportation & Rail',
     location: 'United Kingdom / Western Europe',
+    heroImage: '/assets/Mobile-mapping4.png',
     clientSector: 'National Rail Infrastructure Operator',
-    challenge: 'A national rail authority required survey-grade as-built documentation of a heavily congested 140km mainline corridor to evaluate clearance for new electrified rolling stock without interrupting scheduled passenger services.',
-    methodology: 'Deployed high-speed dual-head mobile laser scanning mounted on track inspection maintenance cars during nocturnal engineering windows. Raw point clouds were processed through automated trajectory correction, followed by automated track centerline and overhead catenary extraction.',
+    shortDesc: 'Survey-grade mobile LiDAR acquisition and automated feature extraction across 140km of active mainline railway corridor.',
+    challenge: 'A national rail authority required survey-grade as-built documentation of a heavily congested 140km mainline corridor to evaluate clearance envelopes for new electrified rolling stock without interrupting scheduled passenger timetables.',
+    methodology: 'Deployed dual-head mobile laser scanning systems mounted on track inspection maintenance vehicles during scheduled nocturnal engineering windows. Raw point clouds were processed through trajectory smoothing, automated track centerline extraction, and overhead catenary wire modeling.',
     technology: [
-      'Dual-Head Mobile LiDAR',
+      'Dual-Head Mobile LiDAR MMS',
       'TerraSolid (TerraScan / TerraMatch)',
       'CloudCompare',
       'Bentley Rail Track',
@@ -23,6 +26,23 @@ export const projectsData: ProjectItem[] = [
       'Structure gauge clearance envelope analysis report',
       'Asset inventory database with 12,000+ cataloged railway assets'
     ],
+    gallery: [
+      {
+        url: '/assets/Mobile-mapping4.png',
+        caption: 'Classified mobile LiDAR track point cloud displaying rail geometry and overhead electrification.',
+        category: 'scan'
+      },
+      {
+        url: '/assets/Mobile-mapping-1.png',
+        caption: 'Mobile mapping survey system and dual-scanner array used during corridor data acquisition.',
+        category: 'site'
+      },
+      {
+        url: '/assets/Mobile-mapping2.png',
+        caption: 'High-density point cloud profile illustrating road and rail infrastructure clearance interfaces.',
+        category: 'deliverable'
+      }
+    ],
     stats: [
       { label: 'Corridor Length', value: '140 km' },
       { label: 'Relative Accuracy', value: '±5 mm' },
@@ -32,90 +52,195 @@ export const projectsData: ProjectItem[] = [
     highlightMetric: '140km corridor delivered in 14 days with zero passenger delays'
   },
   {
-    id: 'heritage-hospital-bim',
-    slug: 'heritage-hospital-scan-to-bim',
-    title: 'Historic Civic Hospital Complex: Comprehensive Scan-to-BIM',
-    category: 'Scan to BIM & AEC',
-    location: 'London & Southeast UK',
-    clientSector: 'Major Architectural & Engineering Consultancy',
-    challenge: 'A landmark 19th-century hospital undergoing adaptive reuse had no reliable structural documentation. Uneven settled foundations, non-orthogonal load-bearing masonry, and complex ceiling spaces required millimeter-level precision before architectural retrofit designs could commence.',
-    methodology: 'Integrated 350+ individual terrestrial laser scans into a unified coordinate system tied to exterior geodetic control. Developed multi-discipline Revit models across LOD 300 (Architecture/Structure) and LOD 350 (MEP services), identifying critical structural settlement variations across wings.',
-    technology: [
-      'Terrestrial Laser Scanning (Leica RTC360)',
-      'Autodesk Revit 2024',
-      'Autodesk Navisworks Manage',
-      'Leica Cyclone Register 360'
-    ],
-    deliverables: [
-      'Federated Autodesk Revit (.RVT) model (LOD 350)',
-      '2D Architectural CAD As-Builts (plans, elevations, cross-sections)',
-      'Tolerance deviation heatmap highlighting wall verticality anomalies',
-      'MEP pipework and HVAC ductwork routing clash matrices'
-    ],
-    stats: [
-      { label: 'Total Area', value: '38,500 m²' },
-      { label: 'Laser Scans', value: '365 Stations' },
-      { label: 'LOD Specification', value: 'LOD 350' },
-      { label: 'Clashes Mitigated', value: '140+ Detected' }
-    ],
-    highlightMetric: 'Sub-3mm accuracy across 38,500 m² multi-discipline retrofit'
-  },
-  {
-    id: 'petrochemical-digital-twin',
-    slug: 'petrochemical-refinery-digital-twin',
-    title: 'Petrochemical Refinery Digital Twin & Pipe Spool Modeling',
-    category: 'Digital Twin & Plant Engineering',
-    location: 'Middle East / Gulf Industrial Hub',
+    id: 'industrial-plant-scan-to-bim',
+    slug: 'industrial-plant-facility-scan-to-bim',
+    title: 'Industrial Plant Room & Complex Mechanical Piping Scan-to-BIM',
+    category: 'Scan to BIM',
+    industry: 'Process Plant Engineering',
+    location: 'Industrial Energy Hub',
+    heroImage: '/assets/Plant-room3.jpg',
     clientSector: 'Global Energy & Chemical Corporation',
-    challenge: 'A high-throughput refinery planned a turnaround overhaul of its fluid catalytic cracking unit. To fabricate replacement pipe spools offsite and install them within a 7-day plant shutdown, zero measurement error was permitted.',
-    methodology: 'Executed dense high-definition 3D laser scanning across congested 4-level steel structures. Scan data was colorized, classified, and converted into intelligent piping components matched to ASME B31.3 specs, outputting exact isometric drawings and tie-in flange coordinates.',
+    shortDesc: 'Millimeter-accurate 3D laser scanning and intelligent Revit MEP modeling of high-density mechanical plant rooms.',
+    challenge: 'A major processing facility scheduled a plant overhaul requiring pre-fabrication of replacement piping spools offsite. The mechanical rooms contained dense, overlapping pipe racks, valves, and structural framing with zero tolerance for installation rework.',
+    methodology: 'Conducted high-definition terrestrial laser scanning across multi-level congested plant spaces. Raw E57 point clouds were registered to geodetic benchmarks, filtered, and converted into intelligent Autodesk Revit MEP and Plant 3D models with full ASME flange metadata.',
     technology: [
-      'High-Definition Terrestrial LiDAR',
+      'Terrestrial Laser Scanning (TLS)',
+      'Autodesk Revit 2024 MEP',
       'AutoCAD Plant 3D',
-      'AVEVA E3D / PDMS Interop',
-      'Cesium 3D Tiles Platform'
+      'Leica Cyclone REGISTER 360',
+      'Navisworks Manage'
     ],
     deliverables: [
-      'Intelligent 3D Plant Model with full valve/flange attribute schedules',
-      '180+ Piping Isometric fabrication drawings with tie-in coordinates',
-      '3D Digital Twin web viewer for remote maintenance team navigation',
-      'Pre-installation virtual clash simulation video reports'
+      'Intelligent 3D Plant Model with full valve, flange, and pipe metadata',
+      'Detailed 2D Piping Isometric fabrication drawings with tie-in coordinates',
+      'Navisworks clash detection matrices & clearance verification reports',
+      'Point-to-model deviation heatmaps confirming ±2mm fit'
+    ],
+    gallery: [
+      {
+        url: '/assets/Plant-room3.jpg',
+        caption: 'Actual complex industrial mechanical plant room surveyed during laser scanning operations.',
+        category: 'site'
+      },
+      {
+        url: '/assets/Plant.png',
+        caption: 'Parametric 3D mechanical model and pipe spool routing extracted from the registered scan data.',
+        category: 'model'
+      },
+      {
+        url: '/assets/Building-3.jpg',
+        caption: 'Structural building envelope and coordinate tie-in alignment deliverable.',
+        category: 'deliverable'
+      }
     ],
     stats: [
-      { label: 'Piping Processed', value: '9,200+ m' },
-      { label: 'Flange Accuracy', value: '±1.5 mm' },
-      { label: 'Isometrics Created', value: '185 Sheets' },
-      { label: 'Shutdown Window', value: '7 Days Met' }
+      { label: 'Piping Processed', value: '8,500+ m' },
+      { label: 'Flange Accuracy', value: '±2.0 mm' },
+      { label: 'Isometrics Created', value: '140 Sheets' },
+      { label: 'Field Rework', value: '0% Recorded' }
     ],
-    highlightMetric: '100% of prefabricated spools fit without on-site field modification'
+    highlightMetric: '100% of prefabricated spools fit on site with zero field rework'
   },
   {
-    id: 'metropolitan-utility-gis',
-    slug: 'metropolitan-underground-utility-gis',
-    title: 'Metropolitan Subsurface Utility Engineering & GIS Base Mapping',
+    id: 'transmission-corridor-lidar',
+    slug: 'high-voltage-transmission-corridor-lidar',
+    title: 'High-Voltage Transmission Line LiDAR & Vegetation Management',
+    category: 'LiDAR Engineering',
+    industry: 'Power & Energy Utilities',
+    location: 'Regional Power Transmission Grid',
+    heroImage: '/assets/Power-line1.png',
+    clientSector: 'Electric Utility Transmission Authority',
+    shortDesc: 'Airborne LiDAR classification, catenary wire sag analysis, and automated vegetation danger tree modeling.',
+    challenge: 'An electrical utility needed to identify dangerous tree encroachment and calculate conductor thermal sag across 850 km of transmission corridors traversing rugged, heavily forested mountainous terrain.',
+    methodology: 'Processed high-density aerial LiDAR returns using automated machine learning classification algorithms adhering to ASPRS standards. Extracted conductor centerlines, computed catenary sag curves under maximum operating temperatures, and calculated 3D vegetation clearance buffers.',
+    technology: [
+      'Airborne LiDAR (16 pts/m²)',
+      'TerraScan / TerraModeler',
+      'PLS-CADD Interoperability',
+      'Global Mapper',
+      'ASPRS LAS 1.4'
+    ],
+    deliverables: [
+      'Classified ASPRS LAS point clouds (Ground, Low/Med/High Veg, Conductor, Tower)',
+      'PLS-CADD compatible transmission wire models and tower attachments',
+      'Automated vegetation encroachment danger tree tables with GPS coordinates',
+      'High-resolution Digital Terrain Models (DTM) and 0.5m contours'
+    ],
+    gallery: [
+      {
+        url: '/assets/Power-line1.png',
+        caption: 'LiDAR point cloud classification showing powerline catenary curves and surrounding vegetation risk zones.',
+        category: 'scan'
+      },
+      {
+        url: '/assets/Lider1.png',
+        caption: 'Classified terrain elevation returns and digital surface model extraction.',
+        category: 'model'
+      },
+      {
+        url: '/assets/Photogrammetry-Terrain-Based-3D-Model-1.png',
+        caption: '3D photogrammetric terrain model used for watershed and access route planning.',
+        category: 'deliverable'
+      }
+    ],
+    stats: [
+      { label: 'Corridor Mapped', value: '850 km' },
+      { label: 'Risk Trees Flagged', value: '420 Trees' },
+      { label: 'Vertical Accuracy', value: '< 4 cm' },
+      { label: 'Turnaround Time', value: '18 Days' }
+    ],
+    highlightMetric: '850km transmission grid classified with millimeter-level catenary precision'
+  },
+  {
+    id: 'subsurface-utility-gis',
+    slug: 'metropolitan-subsurface-utility-gis',
+    title: 'Metropolitan Subsurface Utility Engineering & 3D GIS Mapping',
     category: 'GIS & Utility Mapping',
-    location: 'Regional Municipal Authority',
+    industry: 'Municipal Infrastructure',
+    location: 'Metropolitan Smart City District',
+    heroImage: '/assets/Utilities-mapping1.jpg.png',
     clientSector: 'Urban Development & Smart City Authority',
-    challenge: 'A rapidly expanding city required an authoritative subsurface utility baseline to prevent excavator strikes during a major light rail transit expansion project.',
-    methodology: 'Harmonized 20+ years of disparate municipal utility paper records, Ground Penetrating Radar (GPR) subsurface scans, and electromagnetic locating surveys into a unified Enterprise ArcGIS geodatabase conforming to ASCE 38-02 Quality Level A and B standards.',
+    shortDesc: 'Subsurface Utility Engineering (SUE) mapping and Enterprise GIS geodatabase integration.',
+    challenge: 'Prior to construction of a major urban transit expansion, the city needed an authoritative 3D digital model of all subterranean gas, water, electric, and telecommunication networks to prevent high-risk utility strike incidents.',
+    methodology: 'Harmonized 20+ years of disparate utility drawings, Ground Penetrating Radar (GPR) scans, and electromagnetic locator surveys into a unified Enterprise ArcGIS geodatabase compliant with ASCE 38-02 Quality Level A and B criteria.',
     technology: [
       'ESRI ArcGIS Pro & Enterprise',
       'PostGIS Spatial Database',
-      'Subsurface GPR Vector Ingestion',
+      'GPR Subsurface Ingestion',
       'FME ETL Automation Pipelines'
     ],
     deliverables: [
-      '3D Subsurface Utility Geodatabase (Water, Wastewater, Gas, Telecom, Power)',
-      'ASCE 38-02 Quality Level classification attribution for all segments',
-      'Web-based interactive GIS conflict detection dashboard for contractors',
-      'Municipal standard CAD alignment drawings for rail engineering'
+      '3D Subsurface Utility Geodatabase with ASCE 38-02 quality attributes',
+      'CAD alignment drawings for civil transit contractors',
+      'Web-based conflict detection dashboard for municipal engineers',
+      'Comprehensive utility clash matrix identifying 85 subsurface pinch points'
+    ],
+    gallery: [
+      {
+        url: '/assets/Utilities-mapping1.jpg.png',
+        caption: '3D subterranean utility network model illustrating multi-utility depth alignments.',
+        category: 'model'
+      },
+      {
+        url: '/assets/Mapping.png',
+        caption: 'High-resolution true orthophoto base map combined with municipal GIS cadastral boundaries.',
+        category: 'deliverable'
+      }
     ],
     stats: [
-      { label: 'Network Length', value: '420 km' },
-      { label: 'Strike Incidents', value: '0 During Rail Works' },
-      { label: 'Data Layers Unified', value: '18 Disciplines' },
-      { label: 'Compliance Level', value: 'ASCE 38-02 QA/QB' }
+      { label: 'Network Mapped', value: '380 km' },
+      { label: 'Utility Strikes', value: '0 Strikes' },
+      { label: 'Disciplines Unified', value: '16 Layers' },
+      { label: 'SUE Rigor', value: 'ASCE 38-02' }
     ],
-    highlightMetric: 'Zero utility strike incidents across 420km transit construction corridor'
+    highlightMetric: 'Zero excavator utility strikes across 380km transit development'
+  },
+  {
+    id: 'open-pit-mining-survey',
+    slug: 'open-pit-mining-terrain-volumetric-survey',
+    title: 'Open-Pit Mining Terrain Modeling & Volumetric Surveying',
+    category: 'Geospatial Services',
+    industry: 'Mining & Quarry Operations',
+    location: 'Active Mineral Extraction Basin',
+    heroImage: '/assets/Mining.png',
+    clientSector: 'International Natural Resources Producer',
+    shortDesc: 'High-precision drone photogrammetry, monthly quarry pit volume calculations, and slope stability monitoring.',
+    challenge: 'An active mining site required monthly volumetric cut/fill stockpile audits and continuous geotechnical slope deformation tracking without sending surveying personnel into hazardous active blast pits.',
+    methodology: 'Deployed UAV photogrammetry and aerial LiDAR with RTK ground control networks to compute high-density 3D digital elevation models. Automated volume calculation software compared monthly isopach surfaces to determine exact extracted tonnages.',
+    technology: [
+      'UAV Aerial Photogrammetry',
+      'Pix4Dmatic / Metashape',
+      'Global Mapper',
+      'Civil 3D Volumetric Engines'
+    ],
+    deliverables: [
+      'Stockpile volume reconciliation certificates (m³ and metric tons)',
+      'Digital Terrain Models (DTM) and high-density contour maps',
+      'Geotechnical slope inclination and displacement heatmaps',
+      'High-resolution ortho-mosaic aerial imagery'
+    ],
+    gallery: [
+      {
+        url: '/assets/Mining.png',
+        caption: '3D volumetric mesh of open-pit mining faces and active excavation benches.',
+        category: 'scan'
+      },
+      {
+        url: '/assets/Photogrammetry-Terrain-Based-3D-Model-1.png',
+        caption: 'Photogrammetric 3D digital surface model used for volumetric cut/fill computations.',
+        category: 'deliverable'
+      }
+    ],
+    stats: [
+      { label: 'Area Covered', value: '2,400 Hectares' },
+      { label: 'Volume Precision', value: '< 1.5% Error' },
+      { label: 'Survey Frequency', value: 'Monthly Audits' },
+      { label: 'Safety Incidents', value: '0 Personnel in Pit' }
+    ],
+    highlightMetric: 'Monthly volume reconciliation delivered with less than 1.5% margin of error'
   }
 ];
+
+export function getProjectBySlug(slug: string): ProjectItem | undefined {
+  return projectsData.find(p => p.slug === slug || p.id === slug);
+}

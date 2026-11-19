@@ -3,24 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --color-basalt: #090B0C;
-  --color-carbon: #111517;
-  --color-graphite: #191E20;
-  --color-mineral: #F0EEE8;
-  --color-copper: #C27A50;
-  --color-border: #292F30;
+  --color-bg: #FFFFFF;
+  --color-warm-white: #F7F8F6;
+  --color-section: #F0F2F1;
+  --color-navy: #14233F;
+  --color-navy-deep: #0E1930;
+  --color-gold: #B69A5A;
+  --color-border: #E3E7E8;
+  --color-text: #14233F;
+  --color-text-secondary: #596575;
 }
 
 @layer base {
   html {
-    background-color: #090B0C;
-    color: #F0EEE8;
-    color-scheme: dark;
+    background-color: #FFFFFF;
+    color: #14233F;
+    color-scheme: light;
   }
 
   body {
-    background-color: transparent;
-    color: #F0EEE8;
+    background-color: #FFFFFF;
+    color: #14233F;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -29,6 +32,7 @@
 
   h1, h2, h3, h4, h5, h6, .font-display {
     font-family: 'Space Grotesk', sans-serif;
+    color: #14233F;
     letter-spacing: -0.02em;
   }
 
@@ -37,25 +41,20 @@
   }
 }
 
-/* Subtle architectural grid lines */
-.bg-survey-grid {
+/* Subtle architectural grid pattern on light background */
+.bg-tech-grid {
   background-size: 48px 48px;
   background-image: 
-    linear-gradient(to right, rgba(41, 47, 48, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(41, 47, 48, 0.4) 1px, transparent 1px);
+    linear-gradient(to right, rgba(227, 231, 232, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(227, 231, 232, 0.6) 1px, transparent 1px);
 }
 
-/* Architectural panel style */
-.arch-panel {
-  background: rgba(17, 21, 23, 0.82);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid #292F30;
-}
-
-.arch-panel-solid {
-  background: #111517;
-  border: 1px solid #292F30;
+/* Subtle architectural grid pattern on dark navy stage */
+.bg-tech-grid-dark {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(41, 57, 85, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 57, 85, 0.4) 1px, transparent 1px);
 }
 
 /* Survey crosshair corner tick */
@@ -67,23 +66,23 @@
 .survey-corner::after {
   content: '';
   position: absolute;
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   pointer-events: none;
 }
 
 .survey-corner::before {
   top: -1px;
   left: -1px;
-  border-top: 1px solid #C27A50;
-  border-left: 1px solid #C27A50;
+  border-top: 1.5px solid #B69A5A;
+  border-left: 1.5px solid #B69A5A;
 }
 
 .survey-corner::after {
   bottom: -1px;
   right: -1px;
-  border-bottom: 1px solid #C27A50;
-  border-right: 1px solid #C27A50;
+  border-bottom: 1.5px solid #B69A5A;
+  border-right: 1.5px solid #B69A5A;
 }
 
 /* Precision scrollbar */
@@ -91,14 +90,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #090B0C;
+  background: #F7F8F6;
 }
 ::-webkit-scrollbar-thumb {
-  background: #191E20;
-  border: 1px solid #292F30;
+  background: #CAD1D4;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C27A50;
+  background: #B69A5A;
 }
 
 /* Reduced motion preference */
