@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { projectsData } from '../data/projectsData';
 import { ProjectItem } from '../types';
 import { Breadcrumbs } from '../components/shared/Breadcrumbs';
 import { X, Image as ImageIcon } from 'lucide-react';
 
 export const ProjectsPage: React.FC = () => {
+  const { slug } = useParams<{ slug?: string }>();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [activeModalProject, setActiveModalProject] = useState<ProjectItem | null>(null);
 
@@ -13,6 +14,15 @@ export const ProjectsPage: React.FC = () => {
     window.scrollTo(0, 0);
     document.title = 'Selected Projects & Case Studies | Mapo Spatial';
   }, []);
+
+  useEffect(() => {
+    if (slug) {
+      const matched = projectsData.find(p => p.slug === slug || p.id === slug);
+      if (matched) {
+        setActiveModalProject(matched);
+      }
+    }
+  }, [slug]);
 
   const categories = ['all', 'LiDAR & Transportation', 'Scan to BIM & AEC', 'Digital Twin & Plant Engineering', 'GIS & Utility Mapping'];
 

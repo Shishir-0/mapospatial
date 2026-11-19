@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getServiceBySlug, servicesData } from '../data/servicesData';
 import { Breadcrumbs } from '../components/shared/Breadcrumbs';
 import { ArrowUpRight, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { NotFoundPage } from './NotFoundPage';
 
 interface ServiceDetailPageProps {
   explicitSlug?: string;
@@ -21,7 +22,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ explicitSl
   }, [service]);
 
   if (!service) {
-    return <Navigate to="/" replace />;
+    return <NotFoundPage />;
   }
 
   const relatedServices = servicesData.filter(s => s.id !== service.id).slice(0, 3);

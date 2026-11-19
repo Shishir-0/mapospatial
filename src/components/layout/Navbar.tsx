@@ -17,7 +17,6 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location.pathname]);
 
   const navLinks = [

@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { Suspense, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { SpatialSceneProvider } from './context/SpatialSceneContext';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -11,11 +11,37 @@ import { ProjectsPage } from './pages/ProjectsPage';
 import { WorkflowPage } from './pages/WorkflowPage';
 import { InsightsPage } from './pages/InsightsPage';
 import { ContactPage } from './pages/ContactPage';
+import { NotFoundPage } from './pages/NotFoundPage';
+
+const ScrollHandler: React.FC = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        const timeout = setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [pathname, hash]);
+
+  return null;
+};
 
 export const App: React.FC = () => {
   return (
     <SpatialSceneProvider>
       <BrowserRouter>
+        <ScrollHandler />
         <div className="min-h-screen bg-white text-navy font-sans selection:bg-gold selection:text-white relative flex flex-col">
           
           {/* Architectural Navigation */}
@@ -26,6 +52,9 @@ export const App: React.FC = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               
+              {/* Capabilities Route */}
+              <Route path="/capabilities" element={<Navigate to="/#capabilities" replace />} />
+
               {/* About Page Routes */}
               <Route path="/about-us" element={<AboutPage />} />
               <Route path="/about" element={<AboutPage />} />
@@ -70,6 +99,7 @@ export const App: React.FC = () => {
 
               {/* Projects & Portfolio Routes */}
               <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/projects/:slug" element={<ProjectsPage />} />
 
               {/* Engineering Methodology & Workflow Route */}
               <Route path="/workflow" element={<WorkflowPage />} />
@@ -80,8 +110,8 @@ export const App: React.FC = () => {
               {/* Contact Routes */}
               <Route path="/contact" element={<ContactPage />} />
 
-              {/* Catch-all redirect to Home */}
-              <Route path="*" element={<Navigate to="/" replace />} />
+              {/* Catch-all 404 Geodetic Exception Route */}
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
 
